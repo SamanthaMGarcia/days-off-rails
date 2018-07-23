@@ -2,11 +2,11 @@
 
 <%= form_for @day do |f| %>
 
-  <%= f.label :username %>
-  <%= f.text_field :username %>
+  <%= f.label :date %>
+  <%= f.date_select(:dayoff, :order => [:month, :day, :year]) %>
 
-  <%= f.label :password %>
-  <%= f.password_field :password %>
+  <!-- <%= f.label :reason %>
+  <%#= f.text_field :reason %> -->
 
-  <%= f.submit "Sign Up" %>
+  <%= f.submit "Submit" %>
 <% end %>

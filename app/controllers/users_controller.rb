@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:show]
   def show
-    @user = User.find_by_id(params[:id])
+
   end
 
   def new
@@ -20,5 +21,10 @@ class UsersController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+  def set_user
+    @user = User.find(params[:id])
   end
 end
