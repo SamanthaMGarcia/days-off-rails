@@ -1,22 +1,16 @@
 class RequestsController < ApplicationController
-  def show
-  end
 
-  def index
-  end
-
-  def new
-  end
 
   def create
+    request = Request.new(request_params)
+
+    if request.save
+      redirect_to user_path(request.user)
+    end
   end
 
-  def edit
-  end
-
-  def update
-  end
-
-  def destroy
-  end
+  private
+    def request_params
+      params.require(:request.permit(:user_id, :day_id, :reason)
+    end
 end

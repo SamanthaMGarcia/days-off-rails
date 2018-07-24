@@ -9,8 +9,7 @@
     <%= form_for @request do |f| %>
 
       <%= f.hidden_field :user_id, value: @user.id %>
-      <%= f.collection_select :day_id, Day.all, :id, :dayoff   %>
-      <%= f.text_field :reason %>
       <%= f.date_select(:dayoff, :order => [:month, :day, :year]) %>
+      <%= f.text_field :reason %>
       <%= f.submit %>
 <% end %>

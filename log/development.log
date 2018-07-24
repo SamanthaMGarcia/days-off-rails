@@ -918,3 +918,263 @@ Processing by UsersController#show as HTML
 Completed 200 OK in 129ms (Views: 109.6ms | ActiveRecord: 1.6ms)
 
 
+Started GET "/users/2" for 127.0.0.1 at 2018-07-23 20:09:58 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:28
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mRequest Load (0.7ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:3
+  Rendered users/show.html.erb within layouts/application (14.9ms)
+Completed 500 Internal Server Error in 44ms (ActiveRecord: 1.5ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+     6:   <% end %>
+     7: 
+     8:   <h3>Log Days</h3>
+     9:     <%= form_for @request do |f| %>
+    10: 
+    11:       <%= f.hidden_field :user_id, value: @user.id %>
+    12:       <%= f.collection_select :day_id, Day.all, :id, :dayoff   %>
+  
+app/views/users/show.html.erb:9:in `_app_views_users_show_html_erb__1804485215900702869_70201926581520'
+Started GET "/users/2" for 127.0.0.1 at 2018-07-23 20:19:56 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:28
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mRequest Load (0.6ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:3
+  [1m[36mDay Load (0.8ms)[0m  [1m[34mSELECT "days".* FROM "days"[0m
+  ↳ app/views/users/show.html.erb:12
+  Rendered users/show.html.erb within layouts/application (66.9ms)
+Completed 500 Internal Server Error in 203ms (ActiveRecord: 6.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `dayoff' for #<Request:0x007fb24ca5bc38>):
+    11:       <%= f.hidden_field :user_id, value: @user.id %>
+    12:       <%= f.collection_select :day_id, Day.all, :id, :dayoff   %>
+    13:       <%= f.text_field :reason %>
+    14:       <%= f.date_select(:dayoff, :order => [:month, :day, :year]) %>
+    15:       <%= f.submit %>
+    16: <% end %>
+  
+app/views/users/show.html.erb:14:in `block in _app_views_users_show_html_erb__1804485215900702869_70201888896160'
+app/views/users/show.html.erb:9:in `_app_views_users_show_html_erb__1804485215900702869_70201888896160'
+Started GET "/users/2" for 127.0.0.1 at 2018-07-23 20:26:44 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:28
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mRequest Load (0.8ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:3
+  [1m[36mDay Load (0.8ms)[0m  [1m[34mSELECT "days".* FROM "days"[0m
+  ↳ app/views/users/show.html.erb:12
+  Rendered users/show.html.erb within layouts/application (126.5ms)
+Completed 500 Internal Server Error in 182ms (ActiveRecord: 2.8ms)
+
+
+  
+ActionView::Template::Error (undefined method `dayoff' for #<Request:0x007fb25506b850>):
+    11:       <%= f.hidden_field :user_id, value: @user.id %>
+    12:       <%= f.collection_select :day_id, Day.all, :id, :dayoff   %>
+    13:       <%= f.text_field :reason %>
+    14:       <%= f.date_field(:dayoff, :order => [:month, :day, :year]) %>
+    15:       <%= f.submit %>
+    16: <% end %>
+  
+app/views/users/show.html.erb:14:in `block in _app_views_users_show_html_erb__1804485215900702869_70201953702000'
+app/views/users/show.html.erb:9:in `_app_views_users_show_html_erb__1804485215900702869_70201953702000'
+Started GET "/users/2" for 127.0.0.1 at 2018-07-23 20:27:30 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:28
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (3.9ms)
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 0.5ms)
+
+
+  
+SyntaxError (/Users/samanthagarcia/Development/code/days-off-rails/app/views/users/show.html.erb:14: syntax error, unexpected ',', expecting ')'
+...ppend=( f.date_select (:dayoff, :order => [:month, :day, :ye...
+...                               ^
+/Users/samanthagarcia/Development/code/days-off-rails/app/views/users/show.html.erb:14: syntax error, unexpected ')', expecting keyword_end
+...der => [:month, :day, :year]) );@output_buffer.safe_append='
+...                               ^):
+  
+app/views/users/show.html.erb:14: syntax error, unexpected ',', expecting ')'
+app/views/users/show.html.erb:14: syntax error, unexpected ')', expecting keyword_end
+Started GET "/users/2" for 127.0.0.1 at 2018-07-23 20:27:53 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:28
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:3
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT "days".* FROM "days"[0m
+  ↳ app/views/users/show.html.erb:12
+  Rendered users/show.html.erb within layouts/application (16.2ms)
+Completed 500 Internal Server Error in 39ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `dayoff' for #<Request:0x007fb254c48b88>):
+    11:       <%= f.hidden_field :user_id, value: @user.id %>
+    12:       <%= f.collection_select :day_id, Day.all, :id, :dayoff   %>
+    13:       <%= f.text_field :reason %>
+    14:       <%= f.date_select(:dayoff, :order => [:month, :day, :year]) %>
+    15:       <%= f.submit %>
+    16: <% end %>
+  
+app/views/users/show.html.erb:14:in `block in _app_views_users_show_html_erb__1804485215900702869_70201954630460'
+app/views/users/show.html.erb:9:in `_app_views_users_show_html_erb__1804485215900702869_70201954630460'
+Started GET "/users/2" for 127.0.0.1 at 2018-07-23 20:29:50 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:28
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:3
+  Rendered users/show.html.erb within layouts/application (16.6ms)
+Completed 500 Internal Server Error in 39ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `dayoff' for #<Request:0x007fb2549ce8d0>):
+     9:     <%= form_for @request do |f| %>
+    10: 
+    11:       <%= f.hidden_field :user_id, value: @user.id %>
+    12:       <%= f.date_select(:dayoff, :order => [:month, :day, :year]) %>
+    13:       <%= f.text_field :reason %>
+    14:       <%= f.submit %>
+    15: <% end %>
+  
+app/views/users/show.html.erb:12:in `block in _app_views_users_show_html_erb__1804485215900702869_70201950235100'
+app/views/users/show.html.erb:9:in `_app_views_users_show_html_erb__1804485215900702869_70201950235100'
+Started GET "/users/2" for 127.0.0.1 at 2018-07-23 20:30:09 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:28
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:3
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT "days".* FROM "days"[0m
+  ↳ app/views/users/show.html.erb:12
+  Rendered users/show.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 76ms (Views: 66.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-07-23 20:32:32 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:28
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:3
+  Rendered users/show.html.erb within layouts/application (22.8ms)
+Completed 500 Internal Server Error in 52ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `dayoff' for #<Request:0x007fb254c336e8>):
+     9:     <%= form_for @request do |f| %>
+    10: 
+    11:       <%= f.hidden_field :user_id, value: @user.id %>
+    12:       <%= f.date_select :dayoff, :order => [:month, :day, :year] %>
+    13:       <%= f.text_field :reason %>
+    14:       <%= f.submit %>
+    15: <% end %>
+  
+app/views/users/show.html.erb:12:in `block in _app_views_users_show_html_erb__1804485215900702869_70201951489520'
+app/views/users/show.html.erb:9:in `_app_views_users_show_html_erb__1804485215900702869_70201951489520'
+Started GET "/users/2" for 127.0.0.1 at 2018-07-23 20:32:52 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:28
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:3
+  Rendered users/show.html.erb within layouts/application (16.5ms)
+Completed 500 Internal Server Error in 40ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `dayoff' for #<Request:0x007fb250c556e8>):
+     9:     <%= form_for @request do |f| %>
+    10: 
+    11:       <%= f.hidden_field :user_id, value: @user.id %>
+    12:       <%= f.date_select(:dayoff, :order => [:month, :day, :year]) %>
+    13:       <%= f.text_field :reason %>
+    14:       <%= f.submit %>
+    15: <% end %>
+  
+app/views/users/show.html.erb:12:in `block in _app_views_users_show_html_erb__1804485215900702869_70201917993360'
+app/views/users/show.html.erb:9:in `_app_views_users_show_html_erb__1804485215900702869_70201917993360'
+Started PUT "/__web_console/repl_sessions/5784eadec2dd1c1523b2bd6711ad6158" for 127.0.0.1 at 2018-07-23 20:33:07 -0400
+Started PUT "/__web_console/repl_sessions/5784eadec2dd1c1523b2bd6711ad6158" for 127.0.0.1 at 2018-07-23 20:33:08 -0400
+Started PUT "/__web_console/repl_sessions/5784eadec2dd1c1523b2bd6711ad6158" for 127.0.0.1 at 2018-07-23 20:33:24 -0400
+Started PUT "/__web_console/repl_sessions/5784eadec2dd1c1523b2bd6711ad6158" for 127.0.0.1 at 2018-07-23 20:33:32 -0400
+Started PUT "/__web_console/repl_sessions/5784eadec2dd1c1523b2bd6711ad6158" for 127.0.0.1 at 2018-07-23 20:33:34 -0400
+Started PUT "/__web_console/repl_sessions/5784eadec2dd1c1523b2bd6711ad6158" for 127.0.0.1 at 2018-07-23 20:33:43 -0400
+Started PUT "/__web_console/repl_sessions/5784eadec2dd1c1523b2bd6711ad6158" for 127.0.0.1 at 2018-07-23 20:33:44 -0400
+Started PUT "/__web_console/repl_sessions/5784eadec2dd1c1523b2bd6711ad6158" for 127.0.0.1 at 2018-07-23 20:33:45 -0400
+Started GET "/users/2" for 127.0.0.1 at 2018-07-23 20:34:56 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:28
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:3
+  Rendered users/show.html.erb within layouts/application (155.2ms)
+Completed 500 Internal Server Error in 178ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `day' for #<ActionView::Helpers::FormBuilder:0x007fb24d7d93d8>):
+     9:     <%= form_for @request do |f| %>
+    10: 
+    11:       <%= f.hidden_field :user_id, value: @user.id %>
+    12:       <%= f.day.date_select(:dayoff, :order => [:month, :day, :year]) %>
+    13:       <%= f.text_field :reason %>
+    14:       <%= f.submit %>
+    15: <% end %>
+  
+app/views/users/show.html.erb:12:in `block in _app_views_users_show_html_erb__1804485215900702869_70201917635440'
+app/views/users/show.html.erb:9:in `_app_views_users_show_html_erb__1804485215900702869_70201917635440'
+Started GET "/users/2" for 127.0.0.1 at 2018-07-23 20:39:21 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:28
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:3
+  Rendered users/show.html.erb within layouts/application (16.7ms)
+Completed 500 Internal Server Error in 42ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `dayoff' for #<Request:0x007fb24d977820>):
+     9:     <%= form_for @request do |f| %>
+    10: 
+    11:       <%= f.hidden_field :user_id, value: @user.id %>
+    12:       <%= f.date_field :dayoff %>
+    13:       <%= f.text_field :reason %>
+    14:       <%= f.submit %>
+    15: <% end %>
+  
+app/views/users/show.html.erb:12:in `block in _app_views_users_show_html_erb__1804485215900702869_70201891097680'
+app/views/users/show.html.erb:9:in `_app_views_users_show_html_erb__1804485215900702869_70201891097680'
