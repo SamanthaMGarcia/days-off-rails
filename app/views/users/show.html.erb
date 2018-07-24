@@ -1,6 +1,16 @@
 <p><h1>Hi, <%=@user.username%></h1></p>
 
-  <% @user.days.each do |day| %>
-    <%= day.dayoff %>
-    <%#= request.reason %>
+  <% @user.requests.each do |request| %>
+    <%= request.day.dayoff %>
+    <%= request.reason %>
   <% end %>
+
+  <h3>Log Days</h3>
+    <%= form_for @request do |f| %>
+
+      <%= f.hidden_field :user_id, value: @user.id %>
+      <%= f.collection_select :day_id, Day.all, :id, :dayoff   %>
+      <%= f.text_field :reason %>
+      <%= f.date_select(:dayoff, :order => [:month, :day, :year]) %>
+      <%= f.submit %>
+<% end %>

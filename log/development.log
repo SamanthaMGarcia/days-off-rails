@@ -834,3 +834,87 @@ Processing by DaysController#index as HTML
 Completed 200 OK in 120ms (Views: 104.6ms | ActiveRecord: 1.6ms)
 
 
+Started GET "/days" for 127.0.0.1 at 2018-07-23 19:52:06 -0400
+Processing by DaysController#index as HTML
+  Rendering days/index.html.erb within layouts/application
+  [1m[36mDay Load (0.3ms)[0m  [1m[34mSELECT "days".* FROM "days"[0m
+  ↳ app/views/days/index.html.erb:3
+  Rendered days/index.html.erb within layouts/application (15.5ms)
+Completed 200 OK in 97ms (Views: 79.7ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/days" for 127.0.0.1 at 2018-07-23 19:52:39 -0400
+Processing by DaysController#index as HTML
+  Rendering days/index.html.erb within layouts/application
+  Rendered days/index.html.erb within layouts/application (8.8ms)
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `days' for nil:NilClass):
+    1: <h1>Below Are Your Currently Logged Days Off</h1>
+    2: 
+    3: <% @user.days.each do |day| %>
+    4:   <%= day.dayoff %>
+    5: <% end %>
+  
+app/views/days/index.html.erb:3:in `_app_views_days_index_html_erb__3422312122733194317_70201956365980'
+Started GET "/days" for 127.0.0.1 at 2018-07-23 19:52:51 -0400
+Processing by DaysController#index as HTML
+  Rendering days/index.html.erb within layouts/application
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT "days".* FROM "days"[0m
+  ↳ app/views/days/index.html.erb:3
+  Rendered days/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 55ms (Views: 49.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/days" for 127.0.0.1 at 2018-07-23 19:52:56 -0400
+Processing by DaysController#index as HTML
+  Rendering days/index.html.erb within layouts/application
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT "days".* FROM "days"[0m
+  ↳ app/views/days/index.html.erb:3
+  Rendered days/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 60ms (Views: 54.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/days" for 127.0.0.1 at 2018-07-23 19:53:15 -0400
+Processing by DaysController#index as HTML
+  Rendering days/index.html.erb within layouts/application
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT "days".* FROM "days"[0m
+  ↳ app/views/days/index.html.erb:3
+  Rendered days/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 55ms (Views: 49.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2018-07-23 20:00:53 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 134ms (Views: 91.6ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-07-23 20:01:00 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TGWw6ffXbB/2cl7DAuM/VHwRLydD4jcRkgd9LjdMMb6KcpKEwEl2s2PFrQhKCh4DX0BNNeSu5DmGdNddUJfDUw==", "user"=>{"username"=>"JennHansen", "password"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:13
+  [1m[36mUser Create (1.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["username", "JennHansen"], ["password_digest", "$2a$10$CzgdKoF0TTFW9ZbHXAsvouWR437l1tBcitqToZcH6dKPw9lDat0vy"], ["created_at", "2018-07-24 00:01:00.294737"], ["updated_at", "2018-07-24 00:01:00.294737"]]
+  ↳ app/controllers/users_controller.rb:13
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:13
+Redirected to http://0.0.0.0:3000/users/3
+Completed 302 Found in 101ms (ActiveRecord: 2.7ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-07-23 20:01:00 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:28
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mDay Load (0.4ms)[0m  [1m[34mSELECT "days".* FROM "days" INNER JOIN "requests" ON "days"."id" = "requests"."day_id" WHERE "requests"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/users/show.html.erb:3
+  Rendered users/show.html.erb within layouts/application (38.8ms)
+Completed 200 OK in 129ms (Views: 109.6ms | ActiveRecord: 1.6ms)
+
+
