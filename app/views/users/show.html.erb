@@ -1,15 +1,18 @@
 <p><h1>Hi, <%=@user.username%></h1></p>
 
-  <% @user.requests.each do |request| %>
-    <%= request.day.dayoff %>
-    <%= request.reason %>
-  <% end %>
-
   <h3>Log Days</h3>
     <%= form_for @request do |f| %>
 
       <%= f.hidden_field :user_id, value: @user.id %>
-      <%= f.date_select(:dayoff, :order => [:month, :day, :year]) %>
+      <%= f.fields_for :day, @request.build_day do |day_field| %>
+        <%= day_field.date_select(:dayoff, :order => [:month, :day, :year]) %>
+    <% end %>
+      <%= f.label :reason %>
       <%= f.text_field :reason %>
       <%= f.submit %>
+  <% end %>
+
+<% @user.requests.each do |request| %>
+  <%= request.day.dayoff %>
+  <%= request.reason %>
 <% end %>
