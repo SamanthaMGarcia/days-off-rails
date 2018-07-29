@@ -2280,3 +2280,12 @@ Processing by ApplicationController#home as HTML
 Completed 200 OK in 51ms (Views: 44.1ms | ActiveRecord: 0.2ms)
 
 
+Started GET "/days" for 127.0.0.1 at 2018-07-29 16:53:26 -0400
+Processing by DaysController#index as HTML
+  Rendering days/index.html.erb within layouts/application
+  [1m[36mDay Load (1.1ms)[0m  [1m[34mSELECT "days".* FROM "days"[0m
+  ↳ app/views/days/index.html.erb:3
+  Rendered days/index.html.erb within layouts/application (13.4ms)
+Completed 200 OK in 64ms (Views: 52.2ms | ActiveRecord: 2.1ms)
+
+
