@@ -2289,3 +2289,244 @@ Processing by DaysController#index as HTML
 Completed 200 OK in 64ms (Views: 52.2ms | ActiveRecord: 2.1ms)
 
 
+Started GET "/users/9" for 127.0.0.1 at 2018-07-29 16:57:32 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:28
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mRequest Load (0.7ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = ?[0m  [["user_id", 9]]
+  ↳ app/views/users/show.html.erb:15
+  Rendered users/show.html.erb within layouts/application (21.5ms)
+Completed 200 OK in 118ms (Views: 79.7ms | ActiveRecord: 3.2ms)
+
+
+Started POST "/requests" for 127.0.0.1 at 2018-07-29 16:57:50 -0400
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JqMJxPhtPS3kcT8fXh7ncoAOnw+RVD+E2oyCzGaMpmo3w45fqjn4DCIynR0I+RVS/Jwgbypcn6ZgKbQSPt7PQg==", "request"=>{"user_id"=>"9", "day_attributes"=>{"dayoff(2i)"=>"8", "dayoff(3i)"=>"9", "dayoff(1i)"=>"2018"}, "reason"=>"Dad's birthday"}, "commit"=>"Create Request"}
+  [1m[36mDay Load (1.0ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."dayoff" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/models/request.rb:7
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/request.rb:8
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/models/request.rb:8
+  [1m[36mRequest Create (1.0ms)[0m  [1m[32mINSERT INTO "requests" ("day_id", "user_id", "reason", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["day_id", 1], ["user_id", 9], ["reason", "Dad's birthday"], ["created_at", "2018-07-29 20:57:50.686117"], ["updated_at", "2018-07-29 20:57:50.686117"]]
+  ↳ app/models/request.rb:8
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/request.rb:8
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/requests_controller.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/requests_controller.rb:6
+Redirected to https://localhost:3000/users/9
+Completed 302 Found in 19ms (ActiveRecord: 4.7ms)
+
+
+Started GET "/users/9" for 127.0.0.1 at 2018-07-29 16:57:50 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:28
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = ?[0m  [["user_id", 9]]
+  ↳ app/views/users/show.html.erb:15
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:16
+  Rendered users/show.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 67ms (Views: 61.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/9/" for 127.0.0.1 at 2018-07-29 17:05:33 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:28
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (33.6ms)
+Completed 500 Internal Server Error in 50ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `f' for #<#<Class:0x007faffb102db0>:0x007faffcc6e950>):
+    12:       <%= f.submit %>
+    13:   <% end %>
+    14: 
+    15:     <%= f.fields_for :day, @request.build_day do |day_field| %>
+    16:       <%= day_field.date_select(:dayoff, :order => [:month, :day, :year]) %>
+    17:     <% end %>
+    18: 
+  
+app/views/users/show.html.erb:15:in `_app_views_users_show_html_erb___3905458133071509437_70196898375240'
+Started GET "/users/9/" for 127.0.0.1 at 2018-07-29 17:06:13 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:28
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = ?[0m  [["user_id", 9]]
+  ↳ app/views/users/show.html.erb:21
+  Rendered users/show.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 54ms (Views: 48.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/9/" for 127.0.0.1 at 2018-07-29 17:21:13 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:28
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (8.3ms)
+Completed 500 Internal Server Error in 40ms (ActiveRecord: 0.3ms)
+
+
+  
+SyntaxError (/Users/samanthagarcia/Development/code/days-off-rails/app/views/users/show.html.erb:15: syntax error, unexpected keyword_do, expecting keyword_end
+...put_buffer.append=  @request do |f| @output_buffer.safe_appe...
+...                               ^
+/Users/samanthagarcia/Development/code/days-off-rails/app/views/users/show.html.erb:25: syntax error, unexpected keyword_ensure, expecting end-of-input):
+  
+app/views/users/show.html.erb:15: syntax error, unexpected keyword_do, expecting keyword_end
+app/views/users/show.html.erb:25: syntax error, unexpected keyword_ensure, expecting end-of-input
+Started GET "/users/9/" for 127.0.0.1 at 2018-07-29 17:21:26 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:28
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (23.7ms)
+Completed 500 Internal Server Error in 39ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for #<Request:0x007faffaee0f78>):
+    12:       <%= f.submit %>
+    13:   <% end %>
+    14: 
+    15:   <%= @request.each do |f| %>
+    16:     <%= f.label :day, @request.build_day do |day_field| %>
+    17:       <%= day_field.date_select(:dayoff, :order => [:month, :day, :year]) %>
+    18:     <% end %>
+  
+app/views/users/show.html.erb:15:in `_app_views_users_show_html_erb___3905458133071509437_70196902943200'
+Started GET "/users/9/" for 127.0.0.1 at 2018-07-29 17:23:44 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:28
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = ?[0m  [["user_id", 9]]
+  ↳ app/views/users/show.html.erb:15
+  Rendered users/show.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 69ms (Views: 59.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/9/" for 127.0.0.1 at 2018-07-29 17:27:33 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:28
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = ?[0m  [["user_id", 9]]
+  ↳ app/views/users/show.html.erb:15
+  Rendered users/show.html.erb within layouts/application (14.0ms)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `ymd' for #<Request:0x007fafff440578>):
+    13:   <% end %>
+    14: 
+    15:   <% @user.requests.each do |request| %>
+    16:   <%= request.ymd %>
+    17:   <%= request.reason %>
+    18: <% end %>
+  
+app/views/users/show.html.erb:16:in `block in _app_views_users_show_html_erb___3905458133071509437_70196939608140'
+app/views/users/show.html.erb:15:in `_app_views_users_show_html_erb___3905458133071509437_70196939608140'
+Started GET "/users/9/" for 127.0.0.1 at 2018-07-29 17:28:36 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:28
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mRequest Load (0.8ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = ?[0m  [["user_id", 9]]
+  ↳ app/views/users/show.html.erb:15
+  Rendered users/show.html.erb within layouts/application (59.2ms)
+Completed 500 Internal Server Error in 105ms (ActiveRecord: 3.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `ymd' for #<Request:0x007fb001b87c58>):
+    13:   <% end %>
+    14: 
+    15:   <% @user.requests.each do |request| %>
+    16:   <%= request.ymd %>
+    17:   <%= request.reason %>
+    18: <% end %>
+  
+app/views/users/show.html.erb:16:in `block in _app_views_users_show_html_erb___3905458133071509437_70196952752700'
+app/views/users/show.html.erb:15:in `_app_views_users_show_html_erb___3905458133071509437_70196952752700'
+Started GET "/users/9/" for 127.0.0.1 at 2018-07-29 17:29:39 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:28
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = ?[0m  [["user_id", 9]]
+  ↳ app/views/users/show.html.erb:15
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:16
+  Rendered users/show.html.erb within layouts/application (34.1ms)
+Completed 500 Internal Server Error in 76ms (ActiveRecord: 2.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `ymd' for #<Day:0x007fb0019a1e20>):
+    13:   <% end %>
+    14: 
+    15:   <% @user.requests.each do |request| %>
+    16:   <%= request.day.ymd %>
+    17:   <%= request.reason %>
+    18: <% end %>
+  
+app/views/users/show.html.erb:16:in `block in _app_views_users_show_html_erb___3905458133071509437_70196903156620'
+app/views/users/show.html.erb:15:in `_app_views_users_show_html_erb___3905458133071509437_70196903156620'
+Started GET "/users/9/" for 127.0.0.1 at 2018-07-29 17:29:53 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:28
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = ?[0m  [["user_id", 9]]
+  ↳ app/views/users/show.html.erb:15
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:16
+  Rendered users/show.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 51ms (Views: 45.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/9/" for 127.0.0.1 at 2018-07-29 17:30:04 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:28
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = ?[0m  [["user_id", 9]]
+  ↳ app/views/users/show.html.erb:15
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:16
+  Rendered users/show.html.erb within layouts/application (13.2ms)
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `ymd' for #<Day:0x007fafff30b338>):
+    13:   <% end %>
+    14: 
+    15:   <% @user.requests.each do |request| %>
+    16:   <%= request.day.ymd %>
+    17:   <%= request.reason %>
+    18: <% end %>
+  
+app/views/users/show.html.erb:16:in `block in _app_views_users_show_html_erb___3905458133071509437_70196939069540'
+app/views/users/show.html.erb:15:in `_app_views_users_show_html_erb___3905458133071509437_70196939069540'
