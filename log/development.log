@@ -2160,3 +2160,46 @@ Processing by UsersController#show as HTML
 Completed 200 OK in 72ms (Views: 46.3ms | ActiveRecord: 1.3ms)
 
 
+Started GET "/login" for 127.0.0.1 at 2018-07-29 16:45:06 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 91ms (Views: 82.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2018-07-29 16:45:13 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rBXmtLsnfB1NQQZrSsD6PiP7Y0g4Wi3zTnpr8NF6oOC9dWEv6XO5PIsCpGkcJwgeX2ncKINSjdH0310uiSjJyA==", "user"=>{"username"=>"SamanthaMGarcia", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "SamanthaMGarcia"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:15
+Redirected to https://localhost:3000/users/9
+Completed 302 Found in 109ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/users/9" for 127.0.0.1 at 2018-07-29 16:45:13 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:28
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mRequest Load (0.6ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = ?[0m  [["user_id", 9]]
+  ↳ app/views/users/show.html.erb:15
+  Rendered users/show.html.erb within layouts/application (27.6ms)
+Completed 200 OK in 80ms (Views: 60.6ms | ActiveRecord: 2.1ms)
+
+
+Started POST "/requests" for 127.0.0.1 at 2018-07-29 16:45:22 -0400
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jtsChqMDmAKKa8BaHLE1H55IEK1u1Vz4YzKW86r2PiGfu4Ud8VddI0woYlhKVsc/4tqvzdXd/NrZl6At8qRXCQ==", "request"=>{"user_id"=>"9", "day_attributes"=>{"dayoff(2i)"=>"8", "dayoff(3i)"=>"1", "dayoff(1i)"=>"2018"}, "reason"=>"Mum's birthday"}, "commit"=>"Create Request"}
+  [1m[36mDay Load (0.6ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."dayoff" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/models/request.rb:7
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/requests_controller.rb:6
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:6
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/requests_controller.rb:6
+No template found for RequestsController#create, rendering head :no_content
+Completed 204 No Content in 204ms (ActiveRecord: 1.0ms)
+
+
