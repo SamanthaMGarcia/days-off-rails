@@ -6,3 +6,16 @@
 <% else %>
   <%= link_to('Log in with Facebook!', '/auth/facebook') %>
 <% end %>
+
+Things that are broken:
+
+omniauth
+printing ymd
+
+
+To do:
+
+If already signed up, one cannot use signup page
+Edit functionality of days
+Delete days
+Authentication
