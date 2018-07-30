@@ -13,8 +13,8 @@
   <% end %>
 
   <% @user.requests.each do |request| %>
-  <%= request.day.ymd %>
+  <%#= request.day.ymd %>
   <%= request.reason %>
 <% end %>
 
-<%= link_to "Sign out", logout_path, method: :delete %>
+<p><%= link_to "Sign out", logout_path, method: :delete %></p>
