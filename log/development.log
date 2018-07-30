@@ -3250,3 +3250,21 @@ Processing by DaysController#index as HTML
 Completed 200 OK in 53ms (Views: 45.2ms | ActiveRecord: 0.3ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-07-30 13:30:55 -0400
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered application/home.html.erb within layouts/application (111.6ms)
+Completed 500 Internal Server Error in 130ms (ActiveRecord: 3.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `destroy_user_session_path' for #<#<Class:0x007fec6739eb48>:0x007fec6739d158>):
+     6: 
+     7:   <h3>Go to <%= link_to 'account', days_path %></h3>
+     8: 
+     9:   <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+    10: <% end %>
+  
+app/views/application/home.html.erb:9:in `_app_views_application_home_html_erb___3145096247226087713_70326660430360'
