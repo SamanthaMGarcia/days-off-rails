@@ -5084,3 +5084,16 @@ Processing by ApplicationController#home as HTML
 Completed 200 OK in 41ms (Views: 37.0ms | ActiveRecord: 0.3ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-07-30 18:03:43 -0400
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/samanthagarcia/.rvm/gems/ruby-2.3.3/bin/thin:23
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered application/home.html.erb within layouts/application (36.3ms)
+Completed 200 OK in 413ms (Views: 396.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/auth/facebook" for 127.0.0.1 at 2018-07-30 18:03:46 -0400
+Started GET "/auth/facebook" for 127.0.0.1 at 2018-07-30 18:03:47 -0400

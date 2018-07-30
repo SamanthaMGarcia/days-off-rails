@@ -9,7 +9,7 @@
 
 Things that are broken:
 
-omniauth
+omniauth               thin start --ssl
 printing ymd
 
 
