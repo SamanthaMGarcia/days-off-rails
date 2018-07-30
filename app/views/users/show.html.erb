@@ -12,9 +12,14 @@
       <%= f.submit %>
   <% end %>
 
-  <% @user.requests.each do |request| %>
+  <ul>
+    <li><% @user.requests.each do |request| %>
   <%#= request.day.ymd %>
-  <%= request.reason %>
+  <%= request.reason %> <%= link_to "Edit", edit_day_path %></li>
 <% end %>
+</ul>
+
+
+
 
 <p><%= link_to "Sign out", logout_path, method: :delete %></p>

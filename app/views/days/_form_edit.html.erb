@@ -1,4 +1,4 @@
-<h1>Please Log Your Days Off Below</h1>
+<h1>Please Amend Your Days Off Below</h1>
 
 <%= form_for @request do |f| %>
 
@@ -8,7 +8,7 @@
 <% end %>
   <%= f.label :reason %>
   <%= f.text_field :reason %>
-  <%= f.submit %>
+  <%= f.submit "Edit" %>
 <% end %>
 
 <p><%= link_to "Sign out", logout_path, method: :delete %></p>
