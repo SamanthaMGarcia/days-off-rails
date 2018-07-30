@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to user_path(@user)
     else
-      flash[:alert] = "An error occured with your log in, please try again."
+      flash[:message] = "An error occured with your log in, please try again."
     end
   end
 

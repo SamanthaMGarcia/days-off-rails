@@ -1,5 +1,11 @@
+require 'rack-flash'
+
 class ApplicationController < ActionController::Base
   helper_method :current_user, :logged_in?
+
+  configure do
+    use Rack::Flash
+  end
 
  def home
  end
