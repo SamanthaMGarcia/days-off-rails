@@ -27,4 +27,8 @@ class SessionsController < ApplicationController
     session.clear
     redirect_to root_url
   end
+
+  def auth
+    request.env['omniauth.auth']
+  end
 end

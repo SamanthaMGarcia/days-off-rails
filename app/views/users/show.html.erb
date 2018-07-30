@@ -14,7 +14,7 @@
 
   <ul>
     <li><% @user.requests.each do |request| %>
-  <%#= request.day.ymd %>
+  <%= request.ymd %>
   <%= request.reason %> <%= link_to "Edit", edit_day_path %></li>
 <% end %>
 </ul>
