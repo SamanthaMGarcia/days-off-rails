@@ -11,7 +11,7 @@ class DaysController < ApplicationController
   end
 
   def create
-    @day = Day.new(day_params)
+    @day = current_user.days.build(day_params)
     if @day.save
       redirect_to days_path
     else
