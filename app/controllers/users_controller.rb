@@ -10,8 +10,11 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params.require(:user).permit(:username, :password))
-    @user.save
-    redirect_to user_path(@user)
+    if @user.save
+      redirect_to user_path(@user)
+    else
+      flash[:alert] = "An error occured with your log in, please try again."
+    end
   end
 
   def edit
