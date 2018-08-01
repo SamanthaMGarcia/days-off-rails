@@ -1,15 +1,9 @@
-<% if session[:user_id] %>
-  <h1><%= @ user.username %></h1>
-  <h2>Email: <%= @ user.email %></h2>
-  <h2>Facebook UID: <%= @ user.uid %></h2>
-  <img src="<%= @ user.image %>">
-<% else %>
-  <%= link_to('Log in with Facebook!', '/auth/facebook') %>
-<% end %>
+To run https.... thin start --ssl
 
 Things that are broken:
 
-omniauth               thin start --ssl
+
+
 printing ymd
 
 
