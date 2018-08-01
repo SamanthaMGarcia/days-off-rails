@@ -5284,3 +5284,474 @@ Processing by SessionsController#new as HTML
 Completed 200 OK in 70ms (Views: 62.5ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-08-01 17:35:41 -0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/samanthagarcia/.rvm/gems/ruby-2.3.3/bin/thin:23
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  Rendered application/home.html.erb within layouts/application (17.3ms)
+Completed 200 OK in 335ms (Views: 319.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/auth/facebook" for 127.0.0.1 at 2018-08-01 17:35:44 -0400
+Started GET "/auth/facebook" for 127.0.0.1 at 2018-08-01 17:35:44 -0400
+Started GET "/" for 127.0.0.1 at 2018-08-01 18:04:17 -0400
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mUser Load (4.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  Rendered application/home.html.erb within layouts/application (41.9ms)
+Completed 200 OK in 493ms (Views: 466.5ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2018-08-01 18:04:22 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (46.0ms)
+Completed 200 OK in 140ms (Views: 105.6ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-08-01 18:04:27 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MQMeiNwv2Ac5fBQLPPZQro6y37LWk/iwnn0cookTeqlw6SyylXKa7Sl9azT1W0QhRJYHn1yItaaa7dBDuyk/AA==", "user"=>{"username"=>"SamanthaMGarcia", "password"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:13
+  [1m[36mUser Exists (1.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "SamanthaMGarcia"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:13
+No template found for UsersController#create, rendering head :no_content
+Completed 204 No Content in 678ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-01 18:04:40 -0400
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  Rendered application/home.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 142ms (Views: 128.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-01 18:04:40 -0400
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  Rendered application/home.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 310ms (Views: 274.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/auth/facebook" for 127.0.0.1 at 2018-08-01 18:04:42 -0400
+Started GET "/auth/facebook" for 127.0.0.1 at 2018-08-01 18:04:43 -0400
+Started GET "/" for 127.0.0.1 at 2018-08-01 18:07:37 -0400
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/samanthagarcia/.rvm/gems/ruby-2.3.3/bin/thin:23
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  Rendered application/home.html.erb within layouts/application (26.2ms)
+Completed 200 OK in 586ms (Views: 570.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-01 18:07:38 -0400
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  Rendered application/home.html.erb within layouts/application (14.3ms)
+Completed 200 OK in 269ms (Views: 258.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/auth/facebook" for 127.0.0.1 at 2018-08-01 18:07:48 -0400
+Started GET "/auth/facebook" for 127.0.0.1 at 2018-08-01 18:07:48 -0400
+Started GET "/auth/facebook/callback?code=AQBZyMi3SecLE0wX7ItdIoRBIgRGE2pV9vDnWl6nKiD7oED7EawL_ZtW5WqATNsNcCTSCnXaW0_jNOcwQEHg0eI8LF9J_dlK5b7E188XFjgOzYnga33ULwF9UGBQHEcnUw2nRhPG5tJjUeb5nQEN5Gf-i9d2aiXOC4XlSgcvi6cLgC5MWFVYguVev6tBv4wSNFC3PBmZbCmC2AMpn0__PN3FwH5xhHdFqMkI_Re9n2izjcFc3IEnIw6LDo0SQDNc_H7Bans6VjF5QwoSbwvCwnKWapk2I1imnDjxCyBI-4_vnaYPAXwfP-E_cEwL1PkwkzI&state=fdd4d7e781a2531b6bb1c4982d25a042e9f2082d8a5b81f7" for 127.0.0.1 at 2018-08-01 18:07:59 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"AQBZyMi3SecLE0wX7ItdIoRBIgRGE2pV9vDnWl6nKiD7oED7EawL_ZtW5WqATNsNcCTSCnXaW0_jNOcwQEHg0eI8LF9J_dlK5b7E188XFjgOzYnga33ULwF9UGBQHEcnUw2nRhPG5tJjUeb5nQEN5Gf-i9d2aiXOC4XlSgcvi6cLgC5MWFVYguVev6tBv4wSNFC3PBmZbCmC2AMpn0__PN3FwH5xhHdFqMkI_Re9n2izjcFc3IEnIw6LDo0SQDNc_H7Bans6VjF5QwoSbwvCwnKWapk2I1imnDjxCyBI-4_vnaYPAXwfP-E_cEwL1PkwkzI", "state"=>"fdd4d7e781a2531b6bb1c4982d25a042e9f2082d8a5b81f7"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8
+Completed 406 Not Acceptable in 682ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionController::UnknownFormat (SessionsController#create is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []
+
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.):
+  
+actionpack (5.2.0) lib/action_controller/metal/implicit_render.rb:55:in `default_render'
+actionpack (5.2.0) lib/action_controller/metal/basic_implicit_render.rb:6:in `block in send_action'
+actionpack (5.2.0) lib/action_controller/metal/basic_implicit_render.rb:6:in `tap'
+actionpack (5.2.0) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (5.2.0) lib/abstract_controller/base.rb:194:in `process_action'
+actionpack (5.2.0) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.2.0) lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+activesupport (5.2.0) lib/active_support/callbacks.rb:132:in `run_callbacks'
+actionpack (5.2.0) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (5.2.0) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (5.2.0) lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+activesupport (5.2.0) lib/active_support/notifications.rb:168:in `block in instrument'
+activesupport (5.2.0) lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+activesupport (5.2.0) lib/active_support/notifications.rb:168:in `instrument'
+actionpack (5.2.0) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (5.2.0) lib/action_controller/metal/params_wrapper.rb:256:in `process_action'
+activerecord (5.2.0) lib/active_record/railties/controller_runtime.rb:24:in `process_action'
+actionpack (5.2.0) lib/abstract_controller/base.rb:134:in `process'
+actionview (5.2.0) lib/action_view/rendering.rb:32:in `process'
+actionpack (5.2.0) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.0) lib/action_controller/metal.rb:250:in `block in dispatch'
+rack-flash3 (1.0.5) lib/rack/flash.rb:124:in `call'
+actionpack (5.2.0) lib/action_controller/metal.rb:250:in `dispatch'
+actionpack (5.2.0) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.0) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.0) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.0) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.0) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.0) lib/action_dispatch/routing/route_set.rb:840:in `call'
+omniauth (1.8.1) lib/omniauth/strategy.rb:415:in `call_app!'
+omniauth (1.8.1) lib/omniauth/strategy.rb:369:in `callback_phase'
+omniauth-oauth2 (1.5.0) lib/omniauth/strategies/oauth2.rb:75:in `callback_phase'
+omniauth-facebook (5.0.0) lib/omniauth/strategies/facebook.rb:67:in `block in callback_phase'
+omniauth-facebook (5.0.0) lib/omniauth/strategies/facebook.rb:131:in `with_authorization_code!'
+omniauth-facebook (5.0.0) lib/omniauth/strategies/facebook.rb:66:in `callback_phase'
+omniauth (1.8.1) lib/omniauth/strategy.rb:236:in `callback_call'
+omniauth (1.8.1) lib/omniauth/strategy.rb:188:in `call!'
+omniauth (1.8.1) lib/omniauth/strategy.rb:168:in `call'
+omniauth (1.8.1) lib/omniauth/builder.rb:63:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.5) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.5) lib/rack/etag.rb:25:in `call'
+rack (2.0.5) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.5) lib/rack/head.rb:12:in `call'
+actionpack (5.2.0) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.5) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.5) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.0) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.0) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.0) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.0) lib/rails/engine.rb:524:in `call'
+thin (1.7.2) lib/thin/connection.rb:86:in `block in pre_process'
+thin (1.7.2) lib/thin/connection.rb:84:in `catch'
+thin (1.7.2) lib/thin/connection.rb:84:in `pre_process'
+thin (1.7.2) lib/thin/connection.rb:53:in `process'
+thin (1.7.2) lib/thin/connection.rb:39:in `receive_data'
+eventmachine (1.2.7) lib/eventmachine.rb:195:in `run_machine'
+eventmachine (1.2.7) lib/eventmachine.rb:195:in `run'
+thin (1.7.2) lib/thin/backends/base.rb:73:in `start'
+thin (1.7.2) lib/thin/server.rb:162:in `start'
+thin (1.7.2) lib/thin/controllers/controller.rb:87:in `start'
+thin (1.7.2) lib/thin/runner.rb:203:in `run_command'
+thin (1.7.2) lib/thin/runner.rb:159:in `run!'
+thin (1.7.2) bin/thin:6:in `<top (required)>'
+/Users/samanthagarcia/.rvm/gems/ruby-2.3.3/bin/thin:23:in `load'
+/Users/samanthagarcia/.rvm/gems/ruby-2.3.3/bin/thin:23:in `<main>'
+/Users/samanthagarcia/.rvm/gems/ruby-2.3.3/bin/ruby_executable_hooks:15:in `eval'
+/Users/samanthagarcia/.rvm/gems/ruby-2.3.3/bin/ruby_executable_hooks:15:in `<main>'
+Started GET "/" for 127.0.0.1 at 2018-08-01 18:10:07 -0400
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  Rendered application/home.html.erb within layouts/application (16.8ms)
+Completed 200 OK in 130ms (Views: 123.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-01 18:10:07 -0400
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  Rendered application/home.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 142ms (Views: 132.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/auth/facebook" for 127.0.0.1 at 2018-08-01 18:10:10 -0400
+Started GET "/auth/facebook" for 127.0.0.1 at 2018-08-01 18:10:10 -0400
+Started GET "/auth/facebook/callback?code=AQDXh1S1XVC4R729rECbNioJ4ODZUpo-oxyJW62h-lwBM892VZ09MYZ5huHz7RlD7or521unN49GL8WYBW0oKxQq_NYi04nZwCrI0p1Ite34Go8p7pSGNcuGKsGN5m9BbynEJv_n34QiMW_nK8Uf6b0sPnyv_5FWAtqebeqXt2PbfbJ4swIqgOUZ_W6DRn-1G4efIHXmVHqYsG5Bkqotw27kHpUXep2dPU_YtQTPfXRpDBdQXdwJ1Zvv0FacOBaX7qraTs0aefaMeC6xFN3_-NytBvcy5M8qIe375ngPiVEFs0wcglCANYYBORy_1nl1lkc&state=0666fb264b0f28b8eab960b0cd9a1d3c251d135fb3fc7003" for 127.0.0.1 at 2018-08-01 18:10:10 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"AQDXh1S1XVC4R729rECbNioJ4ODZUpo-oxyJW62h-lwBM892VZ09MYZ5huHz7RlD7or521unN49GL8WYBW0oKxQq_NYi04nZwCrI0p1Ite34Go8p7pSGNcuGKsGN5m9BbynEJv_n34QiMW_nK8Uf6b0sPnyv_5FWAtqebeqXt2PbfbJ4swIqgOUZ_W6DRn-1G4efIHXmVHqYsG5Bkqotw27kHpUXep2dPU_YtQTPfXRpDBdQXdwJ1Zvv0FacOBaX7qraTs0aefaMeC6xFN3_-NytBvcy5M8qIe375ngPiVEFs0wcglCANYYBORy_1nl1lkc", "state"=>"0666fb264b0f28b8eab960b0cd9a1d3c251d135fb3fc7003"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ (pry):2
+Completed 406 Not Acceptable in 98368ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionController::UnknownFormat (SessionsController#create is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []
+
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.):
+  
+actionpack (5.2.0) lib/action_controller/metal/implicit_render.rb:55:in `default_render'
+actionpack (5.2.0) lib/action_controller/metal/basic_implicit_render.rb:6:in `block in send_action'
+actionpack (5.2.0) lib/action_controller/metal/basic_implicit_render.rb:6:in `tap'
+actionpack (5.2.0) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (5.2.0) lib/abstract_controller/base.rb:194:in `process_action'
+actionpack (5.2.0) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.2.0) lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+activesupport (5.2.0) lib/active_support/callbacks.rb:132:in `run_callbacks'
+actionpack (5.2.0) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (5.2.0) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (5.2.0) lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+activesupport (5.2.0) lib/active_support/notifications.rb:168:in `block in instrument'
+activesupport (5.2.0) lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+activesupport (5.2.0) lib/active_support/notifications.rb:168:in `instrument'
+actionpack (5.2.0) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (5.2.0) lib/action_controller/metal/params_wrapper.rb:256:in `process_action'
+activerecord (5.2.0) lib/active_record/railties/controller_runtime.rb:24:in `process_action'
+actionpack (5.2.0) lib/abstract_controller/base.rb:134:in `process'
+actionview (5.2.0) lib/action_view/rendering.rb:32:in `process'
+actionpack (5.2.0) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.0) lib/action_controller/metal.rb:250:in `block in dispatch'
+rack-flash3 (1.0.5) lib/rack/flash.rb:124:in `call'
+actionpack (5.2.0) lib/action_controller/metal.rb:250:in `dispatch'
+actionpack (5.2.0) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.0) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.0) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.0) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.0) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.0) lib/action_dispatch/routing/route_set.rb:840:in `call'
+omniauth (1.8.1) lib/omniauth/strategy.rb:415:in `call_app!'
+omniauth (1.8.1) lib/omniauth/strategy.rb:369:in `callback_phase'
+omniauth-oauth2 (1.5.0) lib/omniauth/strategies/oauth2.rb:75:in `callback_phase'
+omniauth-facebook (5.0.0) lib/omniauth/strategies/facebook.rb:67:in `block in callback_phase'
+omniauth-facebook (5.0.0) lib/omniauth/strategies/facebook.rb:131:in `with_authorization_code!'
+omniauth-facebook (5.0.0) lib/omniauth/strategies/facebook.rb:66:in `callback_phase'
+omniauth (1.8.1) lib/omniauth/strategy.rb:236:in `callback_call'
+omniauth (1.8.1) lib/omniauth/strategy.rb:188:in `call!'
+omniauth (1.8.1) lib/omniauth/strategy.rb:168:in `call'
+omniauth (1.8.1) lib/omniauth/builder.rb:63:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.5) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.5) lib/rack/etag.rb:25:in `call'
+rack (2.0.5) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.5) lib/rack/head.rb:12:in `call'
+actionpack (5.2.0) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.5) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.5) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.0) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.0) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.0) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.0) lib/rails/engine.rb:524:in `call'
+thin (1.7.2) lib/thin/connection.rb:86:in `block in pre_process'
+thin (1.7.2) lib/thin/connection.rb:84:in `catch'
+thin (1.7.2) lib/thin/connection.rb:84:in `pre_process'
+thin (1.7.2) lib/thin/connection.rb:53:in `process'
+thin (1.7.2) lib/thin/connection.rb:39:in `receive_data'
+eventmachine (1.2.7) lib/eventmachine.rb:195:in `run_machine'
+eventmachine (1.2.7) lib/eventmachine.rb:195:in `run'
+thin (1.7.2) lib/thin/backends/base.rb:73:in `start'
+thin (1.7.2) lib/thin/server.rb:162:in `start'
+thin (1.7.2) lib/thin/controllers/controller.rb:87:in `start'
+thin (1.7.2) lib/thin/runner.rb:203:in `run_command'
+thin (1.7.2) lib/thin/runner.rb:159:in `run!'
+thin (1.7.2) bin/thin:6:in `<top (required)>'
+/Users/samanthagarcia/.rvm/gems/ruby-2.3.3/bin/thin:23:in `load'
+/Users/samanthagarcia/.rvm/gems/ruby-2.3.3/bin/thin:23:in `<main>'
+/Users/samanthagarcia/.rvm/gems/ruby-2.3.3/bin/ruby_executable_hooks:15:in `eval'
+/Users/samanthagarcia/.rvm/gems/ruby-2.3.3/bin/ruby_executable_hooks:15:in `<main>'
+Started GET "/" for 127.0.0.1 at 2018-08-01 18:14:19 -0400
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  Rendered application/home.html.erb within layouts/application (28.7ms)
+Completed 200 OK in 123ms (Views: 112.4ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-01 18:14:20 -0400
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  Rendered application/home.html.erb within layouts/application (13.4ms)
+Completed 200 OK in 217ms (Views: 202.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/auth/facebook" for 127.0.0.1 at 2018-08-01 18:14:23 -0400
+Started GET "/auth/facebook" for 127.0.0.1 at 2018-08-01 18:14:23 -0400
+Started GET "/auth/facebook/callback?code=AQBkmQs8Yd7hkG6JaUvQPK-obKmF3sVEmw-lfVzkAopGNiy2CtYDabutHKYI0yU_CneEsZ6ySdrPpEWumigZ47LHLphRDwA0aZV2bLiiwRvx_0TGaSUWEY6FESw8bALz534VCA7u4JquyOC0x5hN2zU13a6P0lCmrAfX47vVsBYmyBe-9Qbs9dHwATqu3wzazLSjeIRdTQbm1RnvtW58-PVOEXT1cVz5zQdFL2Hy8kNiyl2b4EtTO0vw75l18GvunEG3AOjGouBuaAY83fZUzxX2lhhkQNGIHKz8UoiqEtXWIX825SQR6Drk7r2nNT28MC0&state=e6fcc4c4d79ae03c2b21e36cba22b14d03096d747ad91ff5" for 127.0.0.1 at 2018-08-01 18:14:23 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"AQBkmQs8Yd7hkG6JaUvQPK-obKmF3sVEmw-lfVzkAopGNiy2CtYDabutHKYI0yU_CneEsZ6ySdrPpEWumigZ47LHLphRDwA0aZV2bLiiwRvx_0TGaSUWEY6FESw8bALz534VCA7u4JquyOC0x5hN2zU13a6P0lCmrAfX47vVsBYmyBe-9Qbs9dHwATqu3wzazLSjeIRdTQbm1RnvtW58-PVOEXT1cVz5zQdFL2Hy8kNiyl2b4EtTO0vw75l18GvunEG3AOjGouBuaAY83fZUzxX2lhhkQNGIHKz8UoiqEtXWIX825SQR6Drk7r2nNT28MC0", "state"=>"e6fcc4c4d79ae03c2b21e36cba22b14d03096d747ad91ff5"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "samantha.marie.garcia@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sessions_controller.rb:8
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "samantha.marie.garcia@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/sessions_controller.rb:8
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ (pry):6
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "samantha.marie.garcia@gmail.com"], ["LIMIT", 1]]
+  ↳ (pry):6
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ (pry):6
+Completed 500 Internal Server Error in 873040ms (ActiveRecord: 2.0ms)
+
+
+  
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"users", :id=>nil}, missing required keys: [:id]):
+  
+app/controllers/sessions_controller.rb:13:in `create'
+Started GET "/" for 127.0.0.1 at 2018-08-01 18:29:22 -0400
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  Rendered application/home.html.erb within layouts/application (27.0ms)
+Completed 200 OK in 171ms (Views: 161.8ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-01 18:29:23 -0400
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mUser Load (6.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  Rendered application/home.html.erb within layouts/application (40.5ms)
+Completed 200 OK in 224ms (Views: 210.1ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/auth/facebook" for 127.0.0.1 at 2018-08-01 18:29:25 -0400
+Started GET "/auth/facebook" for 127.0.0.1 at 2018-08-01 18:29:25 -0400
+Started GET "/auth/facebook/callback?code=AQBMY-jTOYVQFH8fL5r-mNu-IB2v3tIzO68rnW4HVtCu2tzKSCWp-cpsv0RFL3OzQ9Aa36xmP5E_fGJoeUzwV9amPnQvuf865nUqmv3-9bkY-r96c0KZbzvvHrWnlAwm-GFFW7tL3Oo1PhCGWLBBDgmunJ5xpJvxRIAv5nvJlW9PIxeslh-wOIBOOIyfWFvzsgtM-0HG4sZzTI_A94UhwlZ3muYMbl7YsP398DB4qvoJO91wQRarjFSc-ZwWuAooi_CEj0oCaK74mmolFDXMxDaePr99TTxJUzbmBXqeiH8TLrj19KnPGbUl64XVm3J60s4&state=6878d48c6c4b6d5253ded0b4dd4bb2df6fed0b0a6ec05db8" for 127.0.0.1 at 2018-08-01 18:29:25 -0400
+  
+LoadError (cannot load such file -- simple-password-gen):
+  
+app/controllers/sessions_controller.rb:1:in `<main>'
+Started GET "/" for 127.0.0.1 at 2018-08-01 18:30:20 -0400
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  Rendered application/home.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 141ms (Views: 125.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-01 18:30:20 -0400
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  Rendered application/home.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 222ms (Views: 211.4ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/auth/facebook" for 127.0.0.1 at 2018-08-01 18:30:24 -0400
+Started GET "/auth/facebook" for 127.0.0.1 at 2018-08-01 18:30:24 -0400
+Started GET "/auth/facebook/callback?code=AQDXF47ubPwYBvhC065us1tmJCdBmBwZIn-Yivz2FweJDH7FswBB_x7BlJ-tDV63xd3XIutGjmlo5Wf8WcZ4y-9Cwq4jEyNqETVQxOApvHPo-jBUP27dYx4cfJg8SRy0n73ZY0-hOJX_4uJsfBUG_gVfhQsRCRJj9VUKf7i2VDqOUve9QTItfMs5KmoNmagmdJIdJu3JFi3OyfWllGwMzP95GYmod4ftrVh6PpBYfXX4UfJOVdwcxLDYdjvWrSZb9z9_hbo5C22cP9HD0UEY9HqM-4B_AbgXJz6BnoyfFxlAarW8hga3u6sLNn4SR6h0MrA&state=59107c148e4f82b9bddc228418c06d9c8e272246d857015b" for 127.0.0.1 at 2018-08-01 18:30:24 -0400
+  
+LoadError (cannot load such file -- simple-password-gen):
+  
+app/controllers/sessions_controller.rb:1:in `<main>'
+Started GET "/" for 127.0.0.1 at 2018-08-01 18:31:08 -0400
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/samanthagarcia/.rvm/gems/ruby-2.3.3/bin/thin:23
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  Rendered application/home.html.erb within layouts/application (24.6ms)
+Completed 200 OK in 484ms (Views: 463.0ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-01 18:31:09 -0400
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  Rendered application/home.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 190ms (Views: 180.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/auth/facebook" for 127.0.0.1 at 2018-08-01 18:31:12 -0400
+Started GET "/auth/facebook" for 127.0.0.1 at 2018-08-01 18:31:12 -0400
+Started GET "/auth/facebook/callback?code=AQBV-hVFHaHNFgm-lNqwZSAJaJcoJ9bp9AB5wHVjQlo8elqtlwuGgopj2GipXdb1nzu7Db9pJai3UIHs2AK6RkHiFOGX2PlPlOb4damuYulgRzruMeU7MSvvmWA4-bmLyGzEy7QSSU5DRehQkOjJaoHWJW3YJHXeOsv-unCFyWHp6MX76BAVERA-d2KnJHit8HCJlSqa55XcykqeFUl4btpchqytubCFR5T_H_dmBzPYMsuHUqVZN_Wj_sPslAa-vUjgWgCcSqnHTU1IT3FV9hIBF3rMZuAelF72nJCgvPs6rOYHrUq9YZYl1mMGPmWIuiI&state=8da2a04f49f14b9201e4c5b520de47dbdf020c6fcadaa3a6" for 127.0.0.1 at 2018-08-01 18:31:12 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"AQBV-hVFHaHNFgm-lNqwZSAJaJcoJ9bp9AB5wHVjQlo8elqtlwuGgopj2GipXdb1nzu7Db9pJai3UIHs2AK6RkHiFOGX2PlPlOb4damuYulgRzruMeU7MSvvmWA4-bmLyGzEy7QSSU5DRehQkOjJaoHWJW3YJHXeOsv-unCFyWHp6MX76BAVERA-d2KnJHit8HCJlSqa55XcykqeFUl4btpchqytubCFR5T_H_dmBzPYMsuHUqVZN_Wj_sPslAa-vUjgWgCcSqnHTU1IT3FV9hIBF3rMZuAelF72nJCgvPs6rOYHrUq9YZYl1mMGPmWIuiI", "state"=>"8da2a04f49f14b9201e4c5b520de47dbdf020c6fcadaa3a6"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "samantha.marie.garcia@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:9
+  [1m[35m (1.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sessions_controller.rb:9
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "samantha.marie.garcia@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:9
+  [1m[36mUser Create (3.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["username", "samantha.marie.garcia@gmail.com"], ["password_digest", "$2a$10$dbo9D0D9erKsdNTOv/JOluLhh2ijqkauuW0yougQunOVcjbHwnUX6"], ["created_at", "2018-08-01 22:31:13.255560"], ["updated_at", "2018-08-01 22:31:13.255560"]]
+  ↳ app/controllers/sessions_controller.rb:9
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/sessions_controller.rb:9
+Redirected to https://localhost:3000/users/11
+Completed 302 Found in 140ms (ActiveRecord: 10.5ms)
+
+
+Started GET "/users/11" for 127.0.0.1 at 2018-08-01 18:31:13 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mRequest Load (0.6ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = ?[0m  [["user_id", 11]]
+  ↳ app/views/users/show.html.erb:16
+  Rendered users/show.html.erb within layouts/application (112.8ms)
+Completed 200 OK in 330ms (Views: 220.8ms | ActiveRecord: 3.9ms)
+
+
