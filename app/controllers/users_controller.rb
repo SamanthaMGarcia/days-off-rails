@@ -17,15 +17,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def edit
-  end
-
-  def update
-  end
-
-  def destroy
-  end
-
   private
   def set_user
     @user = User.find(params[:id])
