@@ -5984,3 +5984,66 @@ Processing by ApplicationController#home as HTML
 Completed 200 OK in 59ms (Views: 54.5ms | ActiveRecord: 0.2ms)
 
 
+Started GET "/login" for 127.0.0.1 at 2018-08-02 17:45:51 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (34.7ms)
+Completed 200 OK in 130ms (Views: 122.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2018-08-02 17:45:56 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JUJA2CJO07fZ9SSU9BzNhX8YwUf4oBgYblz0TH+bRVPCusECs7N33GTjnjy3RA+pilm9HI3tu60293NewbC3Ag==", "user"=>{"username"=>"SamanthaMGarcia", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "SamanthaMGarcia"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:18
+Redirected to https://localhost:3000/users/9
+Completed 302 Found in 122ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/users/9" for 127.0.0.1 at 2018-08-02 17:45:56 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mRequest Load (0.6ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = ?[0m  [["user_id", 9]]
+  ↳ app/views/users/show.html.erb:16
+  [1m[36mDay Load (0.7ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mCACHE Day Load (0.0ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mCACHE Day Load (0.0ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  Rendered users/show.html.erb within layouts/application (65.5ms)
+Completed 200 OK in 155ms (Views: 129.6ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/days/9/edit" for 127.0.0.1 at 2018-08-02 17:45:59 -0400
+Processing by DaysController#edit as HTML
+  Parameters: {"id"=>"9"}
+Completed 400 Bad Request in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: day):
+  
+app/controllers/days_controller.rb:42:in `day_params'
+app/controllers/days_controller.rb:23:in `edit'
+Started GET "/days/9/edit" for 127.0.0.1 at 2018-08-02 17:53:12 -0400
+Processing by DaysController#edit as HTML
+  Parameters: {"id"=>"9"}
+Completed 400 Bad Request in 377576ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: day):
+  
+app/controllers/days_controller.rb:43:in `day_params'
+app/controllers/days_controller.rb:23:in `edit'
+Started GET "/days/9/edit" for 127.0.0.1 at 2018-08-02 17:59:39 -0400
+  
+SyntaxError (/Users/samanthagarcia/Development/code/days-off-rails/app/controllers/days_controller.rb:28: syntax error, unexpected keyword_if, expecting ')'
+    if @day.update(day_params)
+      ^):
+  
+app/controllers/days_controller.rb:28: syntax error, unexpected keyword_if, expecting ')'

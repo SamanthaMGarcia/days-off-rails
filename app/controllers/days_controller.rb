@@ -20,12 +20,12 @@ class DaysController < ApplicationController
   end
 
   def edit
-    @day = Day.find(day_params)
+    @day = Day.find(params[:id])
   end
 
   def update
-    @day = Day.find(day_params)
-    if @game.update(day_params)
+    @day = Day.find(params[:id])
+    if @day.update(day_params)
       flash[:notice] = "Your submission has been amended."
       redirect_to user_path(current_user)
     else
