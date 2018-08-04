@@ -15,6 +15,7 @@ class DaysController < ApplicationController
     if @day.save
       redirect_to days_path
     else
+      flash.now[:error] = @day.errors.full_messages
       render :new
     end
   end
@@ -26,10 +27,9 @@ class DaysController < ApplicationController
   def update
     @day = Day.find(params[:id])
     if @day.update(day_params)
-      flash[:notice] = "Your submission has been amended."
       redirect_to user_path(current_user)
     else
-      flash[:alert] = "Your submission failed to update."
+      flash.now[:error] = @day.errors.full_messages
       render :edit
     end
   end
@@ -39,6 +39,6 @@ class DaysController < ApplicationController
 
   private
     def day_params
-      params.require(:day).permit(:dayoff)
+      params.require(:day).permit(:dayoff :requests_attribute =>[:reason])
     end
 end

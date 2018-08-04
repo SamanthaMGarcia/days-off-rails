@@ -8,7 +8,7 @@
         <%= day_field.date_select(:dayoff, :order => [:month, :day, :year]) %>
     <% end %>
       <%= f.label :reason %>
-      <%= f.text_field :reason %>
+      <%= f.text_field :reason, required: true %>
       <%= f.submit %>
   <% end %>
 

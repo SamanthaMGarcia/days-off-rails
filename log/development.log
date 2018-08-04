@@ -7527,3 +7527,372 @@ Processing by UsersController#create as HTML
 Completed 200 OK in 162ms (Views: 71.3ms | ActiveRecord: 0.6ms)
 
 
+Started GET "/login" for 127.0.0.1 at 2018-08-04 14:16:01 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 65ms (Views: 60.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-08-04 14:16:01 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 65ms (Views: 59.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2018-08-04 14:16:06 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"T/V179D/KfACAnPwmXQ6mWD8dxbLU5JCFsoreqS+z8tPWjARQYsCRQGwSbEe74fdAJujp7i5TEnSU5v0kw9AeQ==", "user"=>{"username"=>"SamanthaMGarcia", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "SamanthaMGarcia"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:18
+Redirected to https://localhost:3000/users/9
+Completed 302 Found in 104ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/users/9" for 127.0.0.1 at 2018-08-04 14:16:06 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:28
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = ?[0m  [["user_id", 9]]
+  ↳ app/views/users/show.html.erb:16
+  [1m[36mDay Load (0.5ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mCACHE Day Load (0.0ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mCACHE Day Load (0.0ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  Rendered users/show.html.erb within layouts/application (46.5ms)
+Completed 200 OK in 102ms (Views: 77.5ms | ActiveRecord: 2.4ms)
+
+
+Started POST "/requests" for 127.0.0.1 at 2018-08-04 14:16:09 -0400
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R3tMHDjie3x2VCXK0+jANkUcl2Rwa9zqg/clHmQmRZlH1AniqZZQyXXmH4tUc31yJXtD1QOBAuFHbpWQU5fKKw==", "request"=>{"user_id"=>"9", "day_attributes"=>{"dayoff(2i)"=>"8", "dayoff(3i)"=>"4", "dayoff(1i)"=>"2018"}, "reason"=>""}, "commit"=>"Create Request"}
+  [1m[36mDay Load (0.3ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."dayoff" = ? LIMIT ?[0m  [["dayoff", "2018-08-04"], ["LIMIT", 1]]
+  ↳ app/models/request.rb:7
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/request.rb:7
+  [1m[36mDay Create (0.8ms)[0m  [1m[32mINSERT INTO "days" ("dayoff", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["dayoff", "2018-08-04"], ["created_at", "2018-08-04 18:16:09.574172"], ["updated_at", "2018-08-04 18:16:09.574172"]]
+  ↳ app/models/request.rb:7
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/request.rb:7
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/request.rb:8
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/models/request.rb:8
+  [1m[36mRequest Create (0.9ms)[0m  [1m[32mINSERT INTO "requests" ("day_id", "user_id", "reason", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["day_id", 7], ["user_id", 9], ["reason", ""], ["created_at", "2018-08-04 18:16:09.583345"], ["updated_at", "2018-08-04 18:16:09.583345"]]
+  ↳ app/models/request.rb:8
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/request.rb:8
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/requests_controller.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/requests_controller.rb:6
+Redirected to https://localhost:3000/users/9
+Completed 302 Found in 24ms (ActiveRecord: 6.2ms)
+
+
+Started GET "/users/9" for 127.0.0.1 at 2018-08-04 14:16:09 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:28
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = ?[0m  [["user_id", 9]]
+  ↳ app/views/users/show.html.erb:16
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mCACHE Day Load (0.0ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mCACHE Day Load (0.0ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  Rendered users/show.html.erb within layouts/application (12.5ms)
+Completed 200 OK in 71ms (Views: 63.7ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/requests" for 127.0.0.1 at 2018-08-04 14:30:41 -0400
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2yVkFgM1Ft0kLfhaBF4cLjvK2ryv4OWH5l1i1BxqhYTbiiHokkE9aCefwhuDxaFqW60ODdwKO4wixNJaK9sKNg==", "request"=>{"user_id"=>"9", "day_attributes"=>{"dayoff(2i)"=>"8", "dayoff(3i)"=>"4", "dayoff(1i)"=>"2018"}, "reason"=>""}, "commit"=>"Create Request"}
+  [1m[36mDay Load (0.6ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."dayoff" = ? LIMIT ?[0m  [["dayoff", "2018-08-04"], ["LIMIT", 1]]
+  ↳ app/models/request.rb:7
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/request.rb:8
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/models/request.rb:8
+  [1m[36mRequest Create (0.7ms)[0m  [1m[32mINSERT INTO "requests" ("day_id", "user_id", "reason", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["day_id", 7], ["user_id", 9], ["reason", ""], ["created_at", "2018-08-04 18:30:42.135788"], ["updated_at", "2018-08-04 18:30:42.135788"]]
+  ↳ app/models/request.rb:8
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/request.rb:8
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/requests_controller.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/requests_controller.rb:6
+Redirected to https://localhost:3000/users/9
+Completed 302 Found in 80ms (ActiveRecord: 5.7ms)
+
+
+Started GET "/users/9" for 127.0.0.1 at 2018-08-04 14:30:42 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:28
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mRequest Load (0.5ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = ?[0m  [["user_id", 9]]
+  ↳ app/views/users/show.html.erb:16
+  [1m[36mDay Load (0.3ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mCACHE Day Load (0.0ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mCACHE Day Load (0.0ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mCACHE Day Load (0.0ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  Rendered users/show.html.erb within layouts/application (31.5ms)
+Completed 200 OK in 125ms (Views: 114.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users/9" for 127.0.0.1 at 2018-08-04 14:34:57 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:28
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = ?[0m  [["user_id", 9]]
+  ↳ app/views/users/show.html.erb:16
+  [1m[36mDay Load (0.3ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mCACHE Day Load (0.0ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mCACHE Day Load (0.0ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mCACHE Day Load (0.0ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  Rendered users/show.html.erb within layouts/application (36.5ms)
+Completed 200 OK in 143ms (Views: 92.9ms | ActiveRecord: 3.5ms)
+
+
+Started POST "/requests" for 127.0.0.1 at 2018-08-04 14:35:00 -0400
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Xbwl/DYgCPPlNlQQpyjbTzcfE2c4IgoWjfR7RXM9LnddE2ACp1QjRuaEblEgs2YLV3jH1kvI1B1JbcvLRIyhxQ==", "request"=>{"user_id"=>"9", "day_attributes"=>{"dayoff(2i)"=>"8", "dayoff(3i)"=>"4", "dayoff(1i)"=>"2018"}, "reason"=>""}, "commit"=>"Create Request"}
+  [1m[36mDay Load (0.3ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."dayoff" = ? LIMIT ?[0m  [["dayoff", "2018-08-04"], ["LIMIT", 1]]
+  ↳ app/models/request.rb:7
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/request.rb:8
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/models/request.rb:8
+  [1m[36mRequest Create (0.5ms)[0m  [1m[32mINSERT INTO "requests" ("day_id", "user_id", "reason", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["day_id", 7], ["user_id", 9], ["reason", ""], ["created_at", "2018-08-04 18:35:00.242166"], ["updated_at", "2018-08-04 18:35:00.242166"]]
+  ↳ app/models/request.rb:8
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/request.rb:8
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/requests_controller.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/requests_controller.rb:6
+Redirected to https://localhost:3000/users/9
+Completed 302 Found in 17ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/users/9" for 127.0.0.1 at 2018-08-04 14:35:00 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:28
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = ?[0m  [["user_id", 9]]
+  ↳ app/views/users/show.html.erb:16
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mCACHE Day Load (0.0ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mCACHE Day Load (0.0ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mCACHE Day Load (0.4ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mCACHE Day Load (0.0ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  Rendered users/show.html.erb within layouts/application (37.7ms)
+Completed 200 OK in 130ms (Views: 120.6ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users/9" for 127.0.0.1 at 2018-08-04 14:41:14 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:28
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = ?[0m  [["user_id", 9]]
+  ↳ app/views/users/show.html.erb:16
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mCACHE Day Load (0.0ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mCACHE Day Load (0.0ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mCACHE Day Load (0.0ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mCACHE Day Load (0.0ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  Rendered users/show.html.erb within layouts/application (12.5ms)
+Completed 200 OK in 63ms (Views: 57.5ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/requests" for 127.0.0.1 at 2018-08-04 14:41:16 -0400
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9Yyjv93ZFZOCVZ6FHCER3VyeJZLRqruuZq2vm+NUk8H1I+ZBTK0+JoHnpMSbuqyZPPnxI6JAZaWiNB8V1OUccw==", "request"=>{"user_id"=>"9", "day_attributes"=>{"dayoff(2i)"=>"8", "dayoff(3i)"=>"4", "dayoff(1i)"=>"2018"}, "reason"=>""}, "commit"=>"Create Request"}
+  [1m[36mDay Load (0.3ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."dayoff" = ? LIMIT ?[0m  [["dayoff", "2018-08-04"], ["LIMIT", 1]]
+  ↳ app/models/request.rb:7
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/request.rb:8
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/models/request.rb:8
+  [1m[36mRequest Create (0.8ms)[0m  [1m[32mINSERT INTO "requests" ("day_id", "user_id", "reason", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["day_id", 7], ["user_id", 9], ["reason", ""], ["created_at", "2018-08-04 18:41:16.314295"], ["updated_at", "2018-08-04 18:41:16.314295"]]
+  ↳ app/models/request.rb:8
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/request.rb:8
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/requests_controller.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/requests_controller.rb:6
+Redirected to https://localhost:3000/users/9
+Completed 302 Found in 17ms (ActiveRecord: 3.2ms)
+
+
+Started GET "/users/9" for 127.0.0.1 at 2018-08-04 14:41:16 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:28
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mRequest Load (0.4ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = ?[0m  [["user_id", 9]]
+  ↳ app/views/users/show.html.erb:16
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mCACHE Day Load (0.0ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mCACHE Day Load (0.0ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mCACHE Day Load (0.0ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mCACHE Day Load (0.0ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mCACHE Day Load (0.0ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  Rendered users/show.html.erb within layouts/application (27.3ms)
+Completed 200 OK in 103ms (Views: 93.8ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/requests" for 127.0.0.1 at 2018-08-04 14:41:18 -0400
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Lqm00kEUxpoYz7lZ4k/Ha1UPNg6Mx6K6bhZHB5gFGFIuBvEs0GDtLxt9gxhl1HovNWjiv/8tfLGqj/eJr7SX4A==", "request"=>{"user_id"=>"9", "day_attributes"=>{"dayoff(2i)"=>"8", "dayoff(3i)"=>"4", "dayoff(1i)"=>"2018"}, "reason"=>""}, "commit"=>"Create Request"}
+  [1m[36mDay Load (0.5ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."dayoff" = ? LIMIT ?[0m  [["dayoff", "2018-08-04"], ["LIMIT", 1]]
+  ↳ app/models/request.rb:7
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/request.rb:8
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/models/request.rb:8
+  [1m[36mRequest Create (0.8ms)[0m  [1m[32mINSERT INTO "requests" ("day_id", "user_id", "reason", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["day_id", 7], ["user_id", 9], ["reason", ""], ["created_at", "2018-08-04 18:41:18.369658"], ["updated_at", "2018-08-04 18:41:18.369658"]]
+  ↳ app/models/request.rb:8
+  [1m[35m (2.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/request.rb:8
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/requests_controller.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/requests_controller.rb:6
+Redirected to https://localhost:3000/users/9
+Completed 302 Found in 17ms (ActiveRecord: 4.6ms)
+
+
+Started GET "/users/9" for 127.0.0.1 at 2018-08-04 14:41:18 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:28
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = ?[0m  [["user_id", 9]]
+  ↳ app/views/users/show.html.erb:16
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mCACHE Day Load (0.1ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mCACHE Day Load (0.0ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mCACHE Day Load (0.0ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mCACHE Day Load (0.2ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mCACHE Day Load (0.0ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mCACHE Day Load (0.0ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  Rendered users/show.html.erb within layouts/application (27.9ms)
+Completed 200 OK in 105ms (Views: 96.1ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/requests" for 127.0.0.1 at 2018-08-04 14:41:43 -0400
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GBV+hmvIvnARQXObV8G/66Gu3c/9s2UTJfAyc1vCh1cYujt4+ryVxRLzSdrQWgKvwckJfo5ZuxjhaYL9bHMI5Q==", "request"=>{"user_id"=>"9", "day_attributes"=>{"dayoff(2i)"=>"8", "dayoff(3i)"=>"4", "dayoff(1i)"=>"2018"}, "reason"=>""}, "commit"=>"Create Request"}
+  [1m[36mDay Load (0.3ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."dayoff" = ? LIMIT ?[0m  [["dayoff", "2018-08-04"], ["LIMIT", 1]]
+  ↳ app/models/request.rb:7
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/request.rb:8
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/models/request.rb:8
+  [1m[36mRequest Create (0.8ms)[0m  [1m[32mINSERT INTO "requests" ("day_id", "user_id", "reason", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["day_id", 7], ["user_id", 9], ["reason", ""], ["created_at", "2018-08-04 18:41:43.501245"], ["updated_at", "2018-08-04 18:41:43.501245"]]
+  ↳ app/models/request.rb:8
+  [1m[35m (3.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/request.rb:8
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/requests_controller.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/requests_controller.rb:6
+Redirected to https://localhost:3000/users/9
+Completed 302 Found in 16ms (ActiveRecord: 4.6ms)
+
+
+Started GET "/users/9" for 127.0.0.1 at 2018-08-04 14:41:43 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:28
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = ?[0m  [["user_id", 9]]
+  ↳ app/views/users/show.html.erb:16
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mCACHE Day Load (0.0ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mCACHE Day Load (0.0ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mCACHE Day Load (0.0ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mCACHE Day Load (0.0ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mCACHE Day Load (0.0ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mCACHE Day Load (0.0ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mCACHE Day Load (0.0ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  Rendered users/show.html.erb within layouts/application (25.7ms)
+Completed 200 OK in 100ms (Views: 93.1ms | ActiveRecord: 1.1ms)
+
+
