@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <html>
+<ul>
+<% if flash[:error] %>
+  <% flash[:error].each do |message| %>
+  <li><%= message %></li>
+  <% end %>
+<% end %>
+</ul>
   <head>
     <title>DaysOffRails</title>
     <%= csrf_meta_tags %>
