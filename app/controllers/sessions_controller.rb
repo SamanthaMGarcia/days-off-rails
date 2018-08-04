@@ -10,18 +10,19 @@ class SessionsController < ApplicationController
         u.password = Password.pronounceable 9
       end
 
-      if @user
+      if @user.save
         session[:user_id] = @user.id
         redirect_to user_path(@user)
       end
     else #regular login below
-      @user = User.find_by(username: params[:user][:username])
+      @user = User.find_or_create_by(username: params[:user][:username])
+      if params[:user][:username].empty? || params[:user][:password].empty?
+        flash.now[:error] = @user.errors.full_messages
+        render :new
 
-      if @user && @user.authenticate(params[:user][:password])
+      else @user && @user.authenticate(params[:user][:password])
         session[:user_id] = @user.id
         redirect_to user_path(@user)
-      else
-        render :new
       end
     end
   end
