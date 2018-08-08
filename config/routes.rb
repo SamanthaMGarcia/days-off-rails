@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :users
 
-  resources :requests, only: [:create]
+  resources :requests
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'

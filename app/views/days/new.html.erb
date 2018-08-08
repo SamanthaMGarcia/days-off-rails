@@ -3,7 +3,7 @@
   <%= form_for @day do |f| %>
 
     <%= f.hidden_field :user_id, value: @user.id %>
-    <%= f.fields_for :day, @request.build_day do |day_field| %>
+    <%= f.fields_for :day, @day.build do |day_field| %>
       <%= day_field.date_select(:dayoff, :order => [:month, :day, :year]) %>
   <% end %>
     <%= f.label :reason %>
