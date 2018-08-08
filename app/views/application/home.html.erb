@@ -4,7 +4,9 @@
 <% else %>
   <h1>Welcome <%= current_user.username %></h1>
 
-  <h3>Go to <%= link_to 'account', days_path %></h3>
+  <h3>Go to <%= link_to 'Office Homepage', days_path %></h3>
+
+  <h3>Log <%= link_to 'days off', user_path(@user) %></h3>
 
   <p><%= link_to "Sign out", logout_path, method: :delete %></p>
 
