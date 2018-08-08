@@ -1,7 +1,7 @@
 <h1>Please Amend Your Days Off Below</h1>
 
 <%= form_for @request do |f| %>
-  <%= f.hidden_field :user_id, value: @user.id %>
+  <%= f.hidden_field :user_id, value: @current_user.id %>
   <%= f.fields_for :day, @request.build_day do |day_field| %>
     <%= day_field.date_select(:dayoff, :order => [:month, :day, :year]) %>
 <% end %>
