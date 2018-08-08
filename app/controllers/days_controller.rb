@@ -5,6 +5,8 @@ class DaysController < ApplicationController
   def index
     @days = Day.all
   end
+  
+  #sorted days method
 
   private
     def day_params
