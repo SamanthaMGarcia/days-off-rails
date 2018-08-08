@@ -1,5 +1,5 @@
 class RequestsController < ApplicationController
-  before_action :access_allowed
+  before_action :access_allowed, only: [:edit, :update, :destroy]
 
   def create
     @user = User.find_by(id: params[:id])
@@ -13,23 +13,11 @@ class RequestsController < ApplicationController
     end
   end
 
-  #
-  # def create
-  #   @day = current_user.days.build(day_params)
-  #   if @day.save
-  #     redirect_to days_path
-  #   else
-  #     flash.now[:error] = @day.errors.full_messages
-  #     render :new
-  #   end
-  # end
-
   def edit
     @request = Request.find_by(id: params[:id])
   end
 
   def update
-    @request = Request.find(params[:id])
     if @request.update(request_params)
       redirect_to user_path(current_user)
     else
@@ -39,19 +27,19 @@ class RequestsController < ApplicationController
   end
 
   def destroy
-    @request = Request.find_by(id: params[:id])
     @request.destroy
+    redirect_to user_path(current_user)
   end
 
   private
     def request_params
       params.require(:request).permit(:user_id, :day_id, :reason, day_attributes:[:dayoff])
     end
-    
+
     def access_allowed
       @request = Request.find(params[:id])
       if @request.user != current_user
-        redirect_to user_path
+        redirect_to user_path(current_user)
       end
     end
 end
