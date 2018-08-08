@@ -11434,3 +11434,1369 @@ ActionView::Template::Error (No route matches {:action=>"show", :controller=>"us
     12: 
   
 app/views/application/home.html.erb:9:in `_app_views_application_home_html_erb__4159724538696365777_70351248940720'
+Started GET "/" for 127.0.0.1 at 2018-08-08 08:39:07 -0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/samanthagarcia/.rvm/gems/ruby-2.3.3/bin/thin:23
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered application/home.html.erb within layouts/application (52.4ms)
+Completed 500 Internal Server Error in 92ms (ActiveRecord: 2.2ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"users", :id=>nil}, missing required keys: [:id]):
+     6: 
+     7:   <h3>Go to <%= link_to 'Office Homepage', days_path %></h3>
+     8: 
+     9:   <h3>Log <%= link_to 'days off', user_path(@user) %></h3>
+    10: 
+    11:   <p><%= link_to "Sign out", logout_path, method: :delete %></p>
+    12: 
+  
+app/views/application/home.html.erb:9:in `_app_views_application_home_html_erb__2845907712263565609_70250019142400'
+Started GET "/" for 127.0.0.1 at 2018-08-08 08:39:10 -0400
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered application/home.html.erb within layouts/application (5.7ms)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"users", :id=>nil}, missing required keys: [:id]):
+     6: 
+     7:   <h3>Go to <%= link_to 'Office Homepage', days_path %></h3>
+     8: 
+     9:   <h3>Log <%= link_to 'days off', user_path(@user) %></h3>
+    10: 
+    11:   <p><%= link_to "Sign out", logout_path, method: :delete %></p>
+    12: 
+  
+app/views/application/home.html.erb:9:in `_app_views_application_home_html_erb__2845907712263565609_70250005396560'
+Started GET "/" for 127.0.0.1 at 2018-08-08 08:41:00 -0400
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered application/home.html.erb within layouts/application (14.8ms)
+Completed 200 OK in 533ms (Views: 521.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/days" for 127.0.0.1 at 2018-08-08 08:41:04 -0400
+Processing by DaysController#index as HTML
+  Rendering days/index.html.erb within layouts/application
+  [1m[36mDay Load (1.1ms)[0m  [1m[34mSELECT "days".* FROM "days"[0m
+  ↳ app/views/days/index.html.erb:3
+  Rendered days/index.html.erb within layouts/application (20.7ms)
+Completed 200 OK in 117ms (Views: 93.8ms | ActiveRecord: 1.9ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2018-08-08 08:41:07 -0400
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"kZ9FxkKJLarImLgiaAtbaHvCYAg7ZaTMZ3NPiR3u5gAxd3IC30FD4u3v1uq8ALgKcgkpYzyfZDdPmK0jZ0ITzg=="}
+Redirected to https://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-08 08:41:07 -0400
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered application/home.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 54ms (Views: 49.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2018-08-08 08:41:10 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (22.0ms)
+Completed 200 OK in 92ms (Views: 83.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-08-08 08:41:14 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"S6LrXcs077tXQTGeJ2VovyOMFBycry053pZ/iQyAslChcaqpqubVj6EwQhWZ4QX2hsoyRyeM/0sLTR8izLXmLA==", "user"=>{"username"=>"JennHansen", "password"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:13
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "JennHansen"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:13
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 134ms (Views: 42.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-08 08:41:30 -0400
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered application/home.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 41ms (Views: 35.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-08-08 08:41:48 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 59ms (Views: 48.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2018-08-08 08:41:53 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"U+GuAC63qkoHafDqTDUZMUvYz1J7UkB7J8LuocFFtxm2C/dKDoZNXQtWBUkFVL8OyYXxxFn7Le+covYla77YEQ==", "user"=>{"username"=>"JennHansen", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "JennHansen"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:18
+Redirected to https://localhost:3000/users/3
+Completed 302 Found in 88ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-08-08 08:41:53 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:29
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mRequest Load (0.8ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/users/show.html.erb:16
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  Rendered users/show.html.erb within layouts/application (27.8ms)
+Completed 200 OK in 112ms (Views: 60.7ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/requests/3/edit" for 127.0.0.1 at 2018-08-08 08:41:55 -0400
+Processing by RequestsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRequest Load (0.4ms)[0m  [1m[34mSELECT  "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Request Load (0.0ms)[0m  [1m[34mSELECT  "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:27
+  Rendering requests/edit.html.erb within layouts/application
+  Rendered requests/_form.html.erb (5.6ms)
+  Rendered requests/edit.html.erb within layouts/application (12.4ms)
+Completed 500 Internal Server Error in 42ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    1: <h1>Please Amend Your Days Off Below</h1>
+    2: 
+    3: <%= form_for @request do |f| %>
+    4:   <%= f.hidden_field :user_id, value: @user.id %>
+    5:   <%= f.fields_for :day, @request.build_day do |day_field| %>
+    6:     <%= day_field.date_select(:dayoff, :order => [:month, :day, :year]) %>
+    7: <% end %>
+  
+app/views/requests/_form.html.erb:4:in `block in _app_views_requests__form_html_erb__1112033234875904458_70250040716920'
+app/views/requests/_form.html.erb:3:in `_app_views_requests__form_html_erb__1112033234875904458_70250040716920'
+app/views/requests/edit.html.erb:2:in `_app_views_requests_edit_html_erb___3343580377322748587_70250044154540'
+Started GET "/requests/3/edit" for 127.0.0.1 at 2018-08-08 09:55:12 -0400
+Processing by RequestsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRequest Load (0.6ms)[0m  [1m[34mSELECT  "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:51
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Request Load (0.0ms)[0m  [1m[34mSELECT  "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:27
+  Rendering requests/edit.html.erb within layouts/application
+  Rendered requests/_form.html.erb (16.3ms)
+  Rendered requests/edit.html.erb within layouts/application (23.2ms)
+Completed 500 Internal Server Error in 144ms (ActiveRecord: 3.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    1: <h1>Please Amend Your Days Off Below</h1>
+    2: 
+    3: <%= form_for @request do |f| %>
+    4:   <%= f.hidden_field :user_id, value: @user.id %>
+    5:   <%= f.fields_for :day, @request.build_day do |day_field| %>
+    6:     <%= day_field.date_select(:dayoff, :order => [:month, :day, :year]) %>
+    7: <% end %>
+  
+app/views/requests/_form.html.erb:4:in `block in _app_views_requests__form_html_erb__1112033234875904458_70250064392100'
+app/views/requests/_form.html.erb:3:in `_app_views_requests__form_html_erb__1112033234875904458_70250064392100'
+app/views/requests/edit.html.erb:2:in `_app_views_requests_edit_html_erb___3343580377322748587_70250007154300'
+Started GET "/" for 127.0.0.1 at 2018-08-08 09:56:16 -0400
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered application/home.html.erb within layouts/application (18.4ms)
+Completed 200 OK in 56ms (Views: 50.9ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/days" for 127.0.0.1 at 2018-08-08 09:56:19 -0400
+Processing by DaysController#index as HTML
+  Rendering days/index.html.erb within layouts/application
+  [1m[36mDay Load (0.7ms)[0m  [1m[34mSELECT "days".* FROM "days"[0m
+  ↳ app/views/days/index.html.erb:3
+  Rendered days/index.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 61ms (Views: 43.2ms | ActiveRecord: 1.4ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2018-08-08 09:56:21 -0400
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"4OEbtSHmy5XFY7Z1xJSyr+K/bIwy0BcBMsga579cPIDGg3x1DlAKwFN7lqJblNt+7zd7CkxAN19I79/KkRUi0w=="}
+Redirected to https://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-08 09:56:21 -0400
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered application/home.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 37ms (Views: 33.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-08-08 09:56:24 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 190ms (Views: 181.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2018-08-08 09:56:29 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZrOZuyasMeZ2x1f0Sm74JiGUOPDn4bBWdAjz2Qi+1tqxAq6MuB5SnKikzFymPpPLQAGX6BGCQMb6cOsuaDVZew==", "user"=>{"username"=>"SamanthaMGarcia", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "SamanthaMGarcia"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:18
+Redirected to https://localhost:3000/users/2
+Completed 302 Found in 83ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-08-08 09:56:30 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:29
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mRequest Load (0.6ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:16
+  [1m[36mDay Load (0.3ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  Rendered users/show.html.erb within layouts/application (24.0ms)
+Completed 200 OK in 135ms (Views: 111.4ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/requests/2/edit" for 127.0.0.1 at 2018-08-08 09:56:32 -0400
+Processing by RequestsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRequest Load (0.6ms)[0m  [1m[34mSELECT  "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:51
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:52
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Request Load (0.0ms)[0m  [1m[34mSELECT  "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:27
+  Rendering requests/edit.html.erb within layouts/application
+  Rendered requests/_form.html.erb (5.8ms)
+  Rendered requests/edit.html.erb within layouts/application (10.4ms)
+Completed 500 Internal Server Error in 45ms (ActiveRecord: 1.1ms)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    1: <h1>Please Amend Your Days Off Below</h1>
+    2: 
+    3: <%= form_for @request do |f| %>
+    4:   <%= f.hidden_field :user_id, value: @user.id %>
+    5:   <%= f.fields_for :day, @request.build_day do |day_field| %>
+    6:     <%= day_field.date_select(:dayoff, :order => [:month, :day, :year]) %>
+    7: <% end %>
+  
+app/views/requests/_form.html.erb:4:in `block in _app_views_requests__form_html_erb__1112033234875904458_70250043753840'
+app/views/requests/_form.html.erb:3:in `_app_views_requests__form_html_erb__1112033234875904458_70250043753840'
+app/views/requests/edit.html.erb:2:in `_app_views_requests_edit_html_erb___3343580377322748587_70250005340700'
+Started POST "/requests" for 127.0.0.1 at 2018-08-08 09:58:45 -0400
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dto48wVl6E9QRVnzF1A2YWd3utGN1yD4BouRYiDEIRYqJh3ddOEHm6qQQZZWkCyoM9OJjmdZwJqoMnBPrmfnWg==", "request"=>{"user_id"=>"2", "day_attributes"=>{"dayoff(2i)"=>"9", "dayoff(3i)"=>"9", "dayoff(1i)"=>"2018"}, "reason"=>"Hair Appointment"}, "commit"=>"Create Request"}
+Completed 404 Not Found in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Request without an ID):
+  
+app/controllers/requests_controller.rb:51:in `access_allowed'
+Started GET "/requests" for 127.0.0.1 at 2018-08-08 09:59:11 -0400
+  
+AbstractController::ActionNotFound (The action 'index' could not be found for RequestsController):
+  
+actionpack (5.2.0) lib/abstract_controller/base.rb:129:in `process'
+actionview (5.2.0) lib/action_view/rendering.rb:32:in `process'
+actionpack (5.2.0) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.0) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.0) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.0) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.0) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.0) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.0) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.0) lib/action_dispatch/routing/route_set.rb:840:in `call'
+omniauth (1.8.1) lib/omniauth/strategy.rb:190:in `call!'
+omniauth (1.8.1) lib/omniauth/strategy.rb:168:in `call'
+omniauth (1.8.1) lib/omniauth/builder.rb:63:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.5) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.5) lib/rack/etag.rb:25:in `call'
+rack (2.0.5) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.5) lib/rack/head.rb:12:in `call'
+actionpack (5.2.0) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.5) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.5) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.0) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.0) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.0) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.0) lib/rails/engine.rb:524:in `call'
+thin (1.7.2) lib/thin/connection.rb:86:in `block in pre_process'
+thin (1.7.2) lib/thin/connection.rb:84:in `catch'
+thin (1.7.2) lib/thin/connection.rb:84:in `pre_process'
+thin (1.7.2) lib/thin/connection.rb:53:in `process'
+thin (1.7.2) lib/thin/connection.rb:39:in `receive_data'
+eventmachine (1.2.7) lib/eventmachine.rb:195:in `run_machine'
+eventmachine (1.2.7) lib/eventmachine.rb:195:in `run'
+thin (1.7.2) lib/thin/backends/base.rb:73:in `start'
+thin (1.7.2) lib/thin/server.rb:162:in `start'
+thin (1.7.2) lib/thin/controllers/controller.rb:87:in `start'
+thin (1.7.2) lib/thin/runner.rb:203:in `run_command'
+thin (1.7.2) lib/thin/runner.rb:159:in `run!'
+thin (1.7.2) bin/thin:6:in `<top (required)>'
+/Users/samanthagarcia/.rvm/gems/ruby-2.3.3/bin/thin:23:in `load'
+/Users/samanthagarcia/.rvm/gems/ruby-2.3.3/bin/thin:23:in `<main>'
+/Users/samanthagarcia/.rvm/gems/ruby-2.3.3/bin/ruby_executable_hooks:15:in `eval'
+/Users/samanthagarcia/.rvm/gems/ruby-2.3.3/bin/ruby_executable_hooks:15:in `<main>'
+Started GET "/" for 127.0.0.1 at 2018-08-08 09:59:16 -0400
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered application/home.html.erb within layouts/application (18.6ms)
+Completed 200 OK in 60ms (Views: 53.5ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-08 09:59:17 -0400
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered application/home.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 41ms (Views: 37.4ms | ActiveRecord: 0.1ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2018-08-08 09:59:19 -0400
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"kigoX01v8Ih579LSUjMFFImiS1zo9WiVM7fyT+kaA3bO1A1xPOsfXIM6yrcT8x/d3QZ4AwJ7iPedDhNiZ7nFOg=="}
+Redirected to https://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-08 09:59:19 -0400
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered application/home.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 37ms (Views: 32.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-08-08 09:59:20 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 56ms (Views: 48.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2018-08-08 09:59:24 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+34EMQxbxvRK9/dmC7xV/eleWmWot2G5LjjcpVgonH7vPrgciU8eSJTtKQEg/vTnaOElE8Hr/aX81UPQ4lZBWg==", "user"=>{"username"=>"SamanthaMGarcia", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "SamanthaMGarcia"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:18
+Redirected to https://localhost:3000/users/2
+Completed 302 Found in 90ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-08-08 09:59:25 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:29
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mRequest Load (0.8ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:16
+  [1m[36mDay Load (0.8ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  Rendered users/show.html.erb within layouts/application (24.0ms)
+Completed 200 OK in 78ms (Views: 56.3ms | ActiveRecord: 3.2ms)
+
+
+Started POST "/requests" for 127.0.0.1 at 2018-08-08 09:59:28 -0400
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+gl4JLrRFreM/u4Dz7gphkuEuBGZ14U6Km2I4U186EmeYP2z7AlNRgt3hqdMsf+1jgkZvZQUgDODuNxraIni1g==", "request"=>{"user_id"=>"2", "day_attributes"=>{"dayoff(2i)"=>"8", "dayoff(3i)"=>"8", "dayoff(1i)"=>"2018"}, "reason"=>"Yolo"}, "commit"=>"Create Request"}
+  [1m[36mDay Load (0.5ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."dayoff" = ? LIMIT ?[0m  [["dayoff", "2018-08-08"], ["LIMIT", 1]]
+  ↳ app/models/request.rb:7
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/request.rb:8
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/request.rb:8
+  [1m[36mRequest Create (4.9ms)[0m  [1m[32mINSERT INTO "requests" ("day_id", "user_id", "reason", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["day_id", 5], ["user_id", 2], ["reason", "Yolo"], ["created_at", "2018-08-08 13:59:28.549373"], ["updated_at", "2018-08-08 13:59:28.549373"]]
+  ↳ app/models/request.rb:8
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/request.rb:8
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/requests_controller.rb:7
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/requests_controller.rb:7
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 7.1ms)
+
+
+  
+NoMethodError (undefined method `user' for #<ActionDispatch::Request:0x007fc8b934aba0>):
+  
+app/controllers/requests_controller.rb:8:in `create'
+Started GET "/" for 127.0.0.1 at 2018-08-08 10:00:09 -0400
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered application/home.html.erb within layouts/application (16.3ms)
+Completed 200 OK in 61ms (Views: 57.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/days" for 127.0.0.1 at 2018-08-08 10:00:11 -0400
+Processing by DaysController#index as HTML
+  Rendering days/index.html.erb within layouts/application
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT "days".* FROM "days"[0m
+  ↳ app/views/days/index.html.erb:3
+  Rendered days/index.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 60ms (Views: 44.9ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2018-08-08 10:00:12 -0400
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"VZDHABuxLQbqTEJIp8WIzRxeRBs7UC6G2edkIxSy01cx+UKXTWl2923FKuwkzF7+2dPltzaTK49wMjCpMUfZyA=="}
+Redirected to https://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-08 10:00:12 -0400
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered application/home.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 39ms (Views: 35.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-08-08 10:00:14 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 57ms (Views: 49.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2018-08-08 10:00:18 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5k/j7WpO944QGDT0yoVB6gcar71CSdg1aAe6AGZ+FZe6xBJ+OohbYd7GxwirGjCESIZmATCCMYjXT8nuVO6w6Q==", "user"=>{"username"=>"JennHansen", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "JennHansen"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:18
+Redirected to https://localhost:3000/users/3
+Completed 302 Found in 86ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-08-08 10:00:18 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:29
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/users/show.html.erb:16
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  Rendered users/show.html.erb within layouts/application (14.2ms)
+Completed 200 OK in 65ms (Views: 49.4ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/requests" for 127.0.0.1 at 2018-08-08 10:00:31 -0400
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hc4OT3l3JFWpB2vX5dquRRyofOYw7yv9E2zz3ecs2JNFxG7dDEljGndO81bHzKmcXtpNe6ZRw6pZDxSdd8cx8g==", "request"=>{"user_id"=>"3", "day_attributes"=>{"dayoff(2i)"=>"8", "dayoff(3i)"=>"9", "dayoff(1i)"=>"2018"}, "reason"=>"Dad's birthday"}, "commit"=>"Create Request"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mDay Load (0.4ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."dayoff" = ? LIMIT ?[0m  [["dayoff", "2018-08-09"], ["LIMIT", 1]]
+  ↳ app/models/request.rb:7
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/request.rb:7
+  [1m[36mDay Create (0.9ms)[0m  [1m[32mINSERT INTO "days" ("dayoff", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["dayoff", "2018-08-09"], ["created_at", "2018-08-08 14:00:31.072785"], ["updated_at", "2018-08-08 14:00:31.072785"]]
+  ↳ app/models/request.rb:7
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/request.rb:7
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/request.rb:8
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/request.rb:8
+  [1m[36mRequest Create (0.7ms)[0m  [1m[32mINSERT INTO "requests" ("day_id", "user_id", "reason", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["day_id", 6], ["user_id", 3], ["reason", "Dad's birthday"], ["created_at", "2018-08-08 14:00:31.082249"], ["updated_at", "2018-08-08 14:00:31.082249"]]
+  ↳ app/models/request.rb:8
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/request.rb:8
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/requests_controller.rb:8
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/requests_controller.rb:8
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 6.0ms)
+
+
+  
+NoMethodError (undefined method `user' for #<ActionDispatch::Request:0x007fc8bc3fec88>):
+  
+app/controllers/requests_controller.rb:9:in `create'
+Started GET "/" for 127.0.0.1 at 2018-08-08 10:01:13 -0400
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered application/home.html.erb within layouts/application (16.3ms)
+Completed 200 OK in 57ms (Views: 52.3ms | ActiveRecord: 1.1ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2018-08-08 10:01:15 -0400
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"nSQRLW0lIvD4bYfzhgjXq2RDeWOJDF1CKI1S5DcAR/FdLnG/GBtlvyYkH3KkHtByJjFI/h+ytRVi7rWkp+uukA=="}
+Redirected to https://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-08 10:01:15 -0400
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered application/home.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 39ms (Views: 35.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-08-08 10:01:16 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 60ms (Views: 56.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2018-08-08 10:01:21 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Bhvjsu/381qNhgkbu7uiQSg2uywYphzXrbVf0kQfVIaVpCKXt4pirh9tIU3ILebYiZWDZSHNyMZB8YUd8QblyQ==", "user"=>{"username"=>"JennHansen", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "JennHansen"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:18
+Redirected to https://localhost:3000/users/3
+Completed 302 Found in 86ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-08-08 10:01:21 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:29
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/users/show.html.erb:16
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  Rendered users/show.html.erb within layouts/application (20.7ms)
+Completed 200 OK in 71ms (Views: 52.1ms | ActiveRecord: 2.3ms)
+
+
+Started POST "/requests" for 127.0.0.1 at 2018-08-08 10:01:32 -0400
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YJ+CrdKF+bUgNFp67aywilEA7uX87A+pQParm2/C33lfDi5CWeOqVa24Ty9X6813QIzj6/jSDp0stz5pp7qOsg==", "request"=>{"user_id"=>"3", "day_attributes"=>{"dayoff(2i)"=>"8", "dayoff(3i)"=>"1", "dayoff(1i)"=>"2018"}, "reason"=>"Mum's birthday"}, "commit"=>"Create Request"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:5
+  [1m[36mDay Load (0.3ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."dayoff" = ? LIMIT ?[0m  [["dayoff", "2018-08-01"], ["LIMIT", 1]]
+  ↳ app/models/request.rb:7
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/request.rb:7
+  [1m[36mDay Create (0.9ms)[0m  [1m[32mINSERT INTO "days" ("dayoff", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["dayoff", "2018-08-01"], ["created_at", "2018-08-08 14:01:32.150062"], ["updated_at", "2018-08-08 14:01:32.150062"]]
+  ↳ app/models/request.rb:7
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/request.rb:7
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/request.rb:8
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/request.rb:8
+  [1m[36mRequest Create (0.6ms)[0m  [1m[32mINSERT INTO "requests" ("day_id", "user_id", "reason", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["day_id", 7], ["user_id", 3], ["reason", "Mum's birthday"], ["created_at", "2018-08-08 14:01:32.158834"], ["updated_at", "2018-08-08 14:01:32.158834"]]
+  ↳ app/models/request.rb:8
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/request.rb:8
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/requests_controller.rb:8
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/requests_controller.rb:8
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 5.6ms)
+
+
+  
+NoMethodError (undefined method `user' for #<ActionDispatch::Request:0x007fc8bc87b630>):
+  
+app/controllers/requests_controller.rb:9:in `create'
+Started GET "/requests" for 127.0.0.1 at 2018-08-08 10:02:07 -0400
+  
+AbstractController::ActionNotFound (The action 'index' could not be found for RequestsController):
+  
+actionpack (5.2.0) lib/abstract_controller/base.rb:129:in `process'
+actionview (5.2.0) lib/action_view/rendering.rb:32:in `process'
+actionpack (5.2.0) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.0) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.0) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.0) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.0) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.0) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.0) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.0) lib/action_dispatch/routing/route_set.rb:840:in `call'
+omniauth (1.8.1) lib/omniauth/strategy.rb:190:in `call!'
+omniauth (1.8.1) lib/omniauth/strategy.rb:168:in `call'
+omniauth (1.8.1) lib/omniauth/builder.rb:63:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.5) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.5) lib/rack/etag.rb:25:in `call'
+rack (2.0.5) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.5) lib/rack/head.rb:12:in `call'
+actionpack (5.2.0) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.5) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.5) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.0) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.0) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.0) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.0) lib/rails/engine.rb:524:in `call'
+thin (1.7.2) lib/thin/connection.rb:86:in `block in pre_process'
+thin (1.7.2) lib/thin/connection.rb:84:in `catch'
+thin (1.7.2) lib/thin/connection.rb:84:in `pre_process'
+thin (1.7.2) lib/thin/connection.rb:53:in `process'
+thin (1.7.2) lib/thin/connection.rb:39:in `receive_data'
+eventmachine (1.2.7) lib/eventmachine.rb:195:in `run_machine'
+eventmachine (1.2.7) lib/eventmachine.rb:195:in `run'
+thin (1.7.2) lib/thin/backends/base.rb:73:in `start'
+thin (1.7.2) lib/thin/server.rb:162:in `start'
+thin (1.7.2) lib/thin/controllers/controller.rb:87:in `start'
+thin (1.7.2) lib/thin/runner.rb:203:in `run_command'
+thin (1.7.2) lib/thin/runner.rb:159:in `run!'
+thin (1.7.2) bin/thin:6:in `<top (required)>'
+/Users/samanthagarcia/.rvm/gems/ruby-2.3.3/bin/thin:23:in `load'
+/Users/samanthagarcia/.rvm/gems/ruby-2.3.3/bin/thin:23:in `<main>'
+/Users/samanthagarcia/.rvm/gems/ruby-2.3.3/bin/ruby_executable_hooks:15:in `eval'
+/Users/samanthagarcia/.rvm/gems/ruby-2.3.3/bin/ruby_executable_hooks:15:in `<main>'
+Started GET "/users/1" for 127.0.0.1 at 2018-08-08 10:02:12 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:29
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:16
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  Rendered users/show.html.erb within layouts/application (23.3ms)
+Completed 200 OK in 93ms (Views: 58.4ms | ActiveRecord: 3.6ms)
+
+
+Started POST "/requests" for 127.0.0.1 at 2018-08-08 10:02:24 -0400
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FaVpmBEnveFlIpXyIqbFyweuAlsg33xrUqI2tacqWcoqNMV3mkHuAeiugKeY4bg2FiIPVSThfV8+46NHb1IIAQ==", "request"=>{"user_id"=>"1", "day_attributes"=>{"dayoff(2i)"=>"8", "dayoff(3i)"=>"1", "dayoff(1i)"=>"2018"}, "reason"=>"Mum's birthday"}, "commit"=>"Create Request"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:5
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."dayoff" = ? LIMIT ?[0m  [["dayoff", "2018-08-01"], ["LIMIT", 1]]
+  ↳ app/models/request.rb:7
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/request.rb:8
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/request.rb:8
+  [1m[36mRequest Create (0.5ms)[0m  [1m[32mINSERT INTO "requests" ("day_id", "user_id", "reason", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["day_id", 7], ["user_id", 1], ["reason", "Mum's birthday"], ["created_at", "2018-08-08 14:02:24.857051"], ["updated_at", "2018-08-08 14:02:24.857051"]]
+  ↳ app/models/request.rb:8
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/request.rb:8
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/requests_controller.rb:8
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/requests_controller.rb:8
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 2.4ms)
+
+
+  
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"users", :id=>nil}, missing required keys: [:id]):
+  
+app/controllers/requests_controller.rb:9:in `create'
+Started GET "/requests" for 127.0.0.1 at 2018-08-08 10:02:38 -0400
+  
+AbstractController::ActionNotFound (The action 'index' could not be found for RequestsController):
+  
+actionpack (5.2.0) lib/abstract_controller/base.rb:129:in `process'
+actionview (5.2.0) lib/action_view/rendering.rb:32:in `process'
+actionpack (5.2.0) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.0) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.0) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.0) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.0) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.0) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.0) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.0) lib/action_dispatch/routing/route_set.rb:840:in `call'
+omniauth (1.8.1) lib/omniauth/strategy.rb:190:in `call!'
+omniauth (1.8.1) lib/omniauth/strategy.rb:168:in `call'
+omniauth (1.8.1) lib/omniauth/builder.rb:63:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.5) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.5) lib/rack/etag.rb:25:in `call'
+rack (2.0.5) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.5) lib/rack/head.rb:12:in `call'
+actionpack (5.2.0) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.5) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.5) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.0) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.0) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.0) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.0) lib/rails/engine.rb:524:in `call'
+thin (1.7.2) lib/thin/connection.rb:86:in `block in pre_process'
+thin (1.7.2) lib/thin/connection.rb:84:in `catch'
+thin (1.7.2) lib/thin/connection.rb:84:in `pre_process'
+thin (1.7.2) lib/thin/connection.rb:53:in `process'
+thin (1.7.2) lib/thin/connection.rb:39:in `receive_data'
+eventmachine (1.2.7) lib/eventmachine.rb:195:in `run_machine'
+eventmachine (1.2.7) lib/eventmachine.rb:195:in `run'
+thin (1.7.2) lib/thin/backends/base.rb:73:in `start'
+thin (1.7.2) lib/thin/server.rb:162:in `start'
+thin (1.7.2) lib/thin/controllers/controller.rb:87:in `start'
+thin (1.7.2) lib/thin/runner.rb:203:in `run_command'
+thin (1.7.2) lib/thin/runner.rb:159:in `run!'
+thin (1.7.2) bin/thin:6:in `<top (required)>'
+/Users/samanthagarcia/.rvm/gems/ruby-2.3.3/bin/thin:23:in `load'
+/Users/samanthagarcia/.rvm/gems/ruby-2.3.3/bin/thin:23:in `<main>'
+/Users/samanthagarcia/.rvm/gems/ruby-2.3.3/bin/ruby_executable_hooks:15:in `eval'
+/Users/samanthagarcia/.rvm/gems/ruby-2.3.3/bin/ruby_executable_hooks:15:in `<main>'
+Started GET "/" for 127.0.0.1 at 2018-08-08 10:02:42 -0400
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered application/home.html.erb within layouts/application (15.5ms)
+Completed 200 OK in 69ms (Views: 64.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-08-08 10:02:45 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:29
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:16
+  [1m[36mDay Load (0.5ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mCACHE Day Load (0.0ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  Rendered users/show.html.erb within layouts/application (31.2ms)
+Completed 200 OK in 114ms (Views: 93.6ms | ActiveRecord: 2.4ms)
+
+
+Started POST "/requests" for 127.0.0.1 at 2018-08-08 10:02:55 -0400
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KOnQnX9izawXSja/mN58KhMJbxxqjRNJnjCe845DugIXeHxy9ASeTJrGI+oimQHXAoViEm6zEn3ycQsBRjvryQ==", "request"=>{"user_id"=>"2", "day_attributes"=>{"dayoff(2i)"=>"8", "dayoff(3i)"=>"31", "dayoff(1i)"=>"2018"}, "reason"=>"Moving"}, "commit"=>"Create Request"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:5
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."dayoff" = ? LIMIT ?[0m  [["dayoff", "2018-08-31"], ["LIMIT", 1]]
+  ↳ app/models/request.rb:7
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/request.rb:7
+  [1m[36mDay Create (0.7ms)[0m  [1m[32mINSERT INTO "days" ("dayoff", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["dayoff", "2018-08-31"], ["created_at", "2018-08-08 14:02:55.831507"], ["updated_at", "2018-08-08 14:02:55.831507"]]
+  ↳ app/models/request.rb:7
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/request.rb:7
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/request.rb:8
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/request.rb:8
+  [1m[36mRequest Create (0.8ms)[0m  [1m[32mINSERT INTO "requests" ("day_id", "user_id", "reason", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["day_id", 8], ["user_id", 2], ["reason", "Moving"], ["created_at", "2018-08-08 14:02:55.839160"], ["updated_at", "2018-08-08 14:02:55.839160"]]
+  ↳ app/models/request.rb:8
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/request.rb:8
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/requests_controller.rb:8
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/requests_controller.rb:8
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 5.2ms)
+
+
+  
+NoMethodError (undefined method `id' for nil:NilClass):
+  
+app/controllers/requests_controller.rb:9:in `create'
+Started GET "/users/1" for 127.0.0.1 at 2018-08-08 10:03:29 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:29
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mRequest Load (0.6ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:16
+  [1m[36mDay Load (0.3ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  Rendered users/show.html.erb within layouts/application (38.6ms)
+Completed 200 OK in 118ms (Views: 86.9ms | ActiveRecord: 3.3ms)
+
+
+Started POST "/requests" for 127.0.0.1 at 2018-08-08 10:03:39 -0400
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"X8z8K0OQ2pA6LvxjRWMDJhVvfXrgy73N4tdqhR5vEYVgXVDEyPaJcLei6Tb/JH7bBONwdOT1vPmOlv931hdATg==", "request"=>{"user_id"=>"1", "day_attributes"=>{"dayoff(2i)"=>"8", "dayoff(3i)"=>"7", "dayoff(1i)"=>"2018"}, "reason"=>"Budapest"}, "commit"=>"Create Request"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:5
+  [1m[36mDay Load (0.4ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."dayoff" = ? LIMIT ?[0m  [["dayoff", "2018-08-07"], ["LIMIT", 1]]
+  ↳ app/models/request.rb:7
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/request.rb:7
+  [1m[36mDay Create (0.8ms)[0m  [1m[32mINSERT INTO "days" ("dayoff", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["dayoff", "2018-08-07"], ["created_at", "2018-08-08 14:03:39.182203"], ["updated_at", "2018-08-08 14:03:39.182203"]]
+  ↳ app/models/request.rb:7
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/request.rb:7
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/request.rb:8
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/request.rb:8
+  [1m[36mRequest Create (0.7ms)[0m  [1m[32mINSERT INTO "requests" ("day_id", "user_id", "reason", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["day_id", 9], ["user_id", 1], ["reason", "Budapest"], ["created_at", "2018-08-08 14:03:39.191129"], ["updated_at", "2018-08-08 14:03:39.191129"]]
+  ↳ app/models/request.rb:8
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/request.rb:8
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/requests_controller.rb:8
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/requests_controller.rb:8
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 5.2ms)
+
+
+  
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"users"}, missing required keys: [:id]):
+  
+app/controllers/requests_controller.rb:9:in `create'
+Started GET "/users/new" for 127.0.0.1 at 2018-08-08 10:04:00 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 76ms (Views: 40.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2018-08-08 10:04:04 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:29
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:16
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  Rendered users/show.html.erb within layouts/application (27.4ms)
+Completed 200 OK in 79ms (Views: 59.1ms | ActiveRecord: 2.1ms)
+
+
+Started POST "/requests" for 127.0.0.1 at 2018-08-08 10:04:19 -0400
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Xjki4eBP366PRR/ST2Mah4QF7sGMexIOzIWzy+6kpO1hqI4OaymMTgLJCof1JGd6lYnjz4hFEzqgxCY5Jtz1Jg==", "request"=>{"user_id"=>"1", "day_attributes"=>{"dayoff(2i)"=>"8", "dayoff(3i)"=>"8", "dayoff(1i)"=>"2018"}, "reason"=>"Trip to London"}, "commit"=>"Create Request"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:5
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."dayoff" = ? LIMIT ?[0m  [["dayoff", "2018-08-08"], ["LIMIT", 1]]
+  ↳ app/models/request.rb:7
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/request.rb:8
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/request.rb:8
+  [1m[36mRequest Create (0.5ms)[0m  [1m[32mINSERT INTO "requests" ("day_id", "user_id", "reason", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["day_id", 5], ["user_id", 1], ["reason", "Trip to London"], ["created_at", "2018-08-08 14:04:19.563024"], ["updated_at", "2018-08-08 14:04:19.563024"]]
+  ↳ app/models/request.rb:8
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/request.rb:8
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/requests_controller.rb:8
+  [1m[35m (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/requests_controller.rb:8
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 2.8ms)
+
+
+  
+NoMethodError (undefined method `user' for #<ActionDispatch::Request:0x007fc8b94ea2f8>):
+  
+app/controllers/requests_controller.rb:9:in `create'
+Started GET "/users/1" for 127.0.0.1 at 2018-08-08 10:04:37 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:29
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:16
+  [1m[36mDay Load (0.4ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  Rendered users/show.html.erb within layouts/application (29.1ms)
+Completed 200 OK in 96ms (Views: 63.7ms | ActiveRecord: 3.1ms)
+
+
+Started POST "/requests" for 127.0.0.1 at 2018-08-08 10:04:51 -0400
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XtJtNREzzbBh36VoXT1lF9OWmkzUb4YEYu01A3woFYBhQ8HamlWeUOxTsD3nehjqwhqXQtBRhzAOrKDxtFBESw==", "request"=>{"user_id"=>"1", "day_attributes"=>{"dayoff(2i)"=>"11", "dayoff(3i)"=>"21", "dayoff(1i)"=>"2018"}, "reason"=>"Trip to Australia"}, "commit"=>"Create Request"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:5
+  [1m[36mDay Load (0.3ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."dayoff" = ? LIMIT ?[0m  [["dayoff", "2018-11-21"], ["LIMIT", 1]]
+  ↳ app/models/request.rb:7
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/request.rb:7
+  [1m[36mDay Create (0.5ms)[0m  [1m[32mINSERT INTO "days" ("dayoff", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["dayoff", "2018-11-21"], ["created_at", "2018-08-08 14:04:51.924957"], ["updated_at", "2018-08-08 14:04:51.924957"]]
+  ↳ app/models/request.rb:7
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/request.rb:7
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/request.rb:8
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/request.rb:8
+  [1m[36mRequest Create (1.0ms)[0m  [1m[32mINSERT INTO "requests" ("day_id", "user_id", "reason", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["day_id", 10], ["user_id", 1], ["reason", "Trip to Australia"], ["created_at", "2018-08-08 14:04:51.932989"], ["updated_at", "2018-08-08 14:04:51.932989"]]
+  ↳ app/models/request.rb:8
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/request.rb:8
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/requests_controller.rb:8
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/requests_controller.rb:8
+Redirected to https://localhost:3000/users
+Completed 302 Found in 27ms (ActiveRecord: 5.3ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-08-08 10:04:51 -0400
+  
+AbstractController::ActionNotFound (The action 'index' could not be found for UsersController):
+  
+actionpack (5.2.0) lib/abstract_controller/base.rb:129:in `process'
+actionview (5.2.0) lib/action_view/rendering.rb:32:in `process'
+actionpack (5.2.0) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.0) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.0) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.0) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.0) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.0) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.0) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.0) lib/action_dispatch/routing/route_set.rb:840:in `call'
+omniauth (1.8.1) lib/omniauth/strategy.rb:190:in `call!'
+omniauth (1.8.1) lib/omniauth/strategy.rb:168:in `call'
+omniauth (1.8.1) lib/omniauth/builder.rb:63:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.5) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.5) lib/rack/etag.rb:25:in `call'
+rack (2.0.5) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.5) lib/rack/head.rb:12:in `call'
+actionpack (5.2.0) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.5) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.5) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.0) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.0) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.0) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.0) lib/rails/engine.rb:524:in `call'
+thin (1.7.2) lib/thin/connection.rb:86:in `block in pre_process'
+thin (1.7.2) lib/thin/connection.rb:84:in `catch'
+thin (1.7.2) lib/thin/connection.rb:84:in `pre_process'
+thin (1.7.2) lib/thin/connection.rb:53:in `process'
+thin (1.7.2) lib/thin/connection.rb:39:in `receive_data'
+eventmachine (1.2.7) lib/eventmachine.rb:195:in `run_machine'
+eventmachine (1.2.7) lib/eventmachine.rb:195:in `run'
+thin (1.7.2) lib/thin/backends/base.rb:73:in `start'
+thin (1.7.2) lib/thin/server.rb:162:in `start'
+thin (1.7.2) lib/thin/controllers/controller.rb:87:in `start'
+thin (1.7.2) lib/thin/runner.rb:203:in `run_command'
+thin (1.7.2) lib/thin/runner.rb:159:in `run!'
+thin (1.7.2) bin/thin:6:in `<top (required)>'
+/Users/samanthagarcia/.rvm/gems/ruby-2.3.3/bin/thin:23:in `load'
+/Users/samanthagarcia/.rvm/gems/ruby-2.3.3/bin/thin:23:in `<main>'
+/Users/samanthagarcia/.rvm/gems/ruby-2.3.3/bin/ruby_executable_hooks:15:in `eval'
+/Users/samanthagarcia/.rvm/gems/ruby-2.3.3/bin/ruby_executable_hooks:15:in `<main>'
+Started GET "/users/1" for 127.0.0.1 at 2018-08-08 10:05:37 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:29
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:16
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  Rendered users/show.html.erb within layouts/application (26.6ms)
+Completed 200 OK in 122ms (Views: 70.5ms | ActiveRecord: 3.5ms)
+
+
+Started POST "/requests" for 127.0.0.1 at 2018-08-08 10:05:54 -0400
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tzbDe8nJsdL27DkvzwUQ+146lfo/puMv92rp9rPOgS6Ip2+UQq/iMntgLHp1Qm0GT7aY9DuY4hubK3wEe7bQ5Q==", "request"=>{"user_id"=>"1", "day_attributes"=>{"dayoff(2i)"=>"1", "dayoff(3i)"=>"8", "dayoff(1i)"=>"2018"}, "reason"=>"Physical therapy"}, "commit"=>"Create Request"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:5
+  [1m[36mDay Load (0.3ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."dayoff" = ? LIMIT ?[0m  [["dayoff", "2018-01-08"], ["LIMIT", 1]]
+  ↳ app/models/request.rb:7
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/request.rb:7
+  [1m[36mDay Create (0.7ms)[0m  [1m[32mINSERT INTO "days" ("dayoff", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["dayoff", "2018-01-08"], ["created_at", "2018-08-08 14:05:54.826615"], ["updated_at", "2018-08-08 14:05:54.826615"]]
+  ↳ app/models/request.rb:7
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/request.rb:7
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/request.rb:8
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/request.rb:8
+  [1m[36mRequest Create (0.7ms)[0m  [1m[32mINSERT INTO "requests" ("day_id", "user_id", "reason", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["day_id", 11], ["user_id", 1], ["reason", "Physical therapy"], ["created_at", "2018-08-08 14:05:54.836172"], ["updated_at", "2018-08-08 14:05:54.836172"]]
+  ↳ app/models/request.rb:8
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/request.rb:8
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/requests_controller.rb:8
+  [1m[35m (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/requests_controller.rb:8
+Completed 500 Internal Server Error in 60ms (ActiveRecord: 6.0ms)
+
+
+  
+NameError (undefined local variable or method `current_path' for #<RequestsController:0x007fc8bc1812f8>
+Did you mean?  current_user):
+  
+app/controllers/requests_controller.rb:9:in `create'
+Started GET "/users/1" for 127.0.0.1 at 2018-08-08 10:06:10 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:29
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:16
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  Rendered users/show.html.erb within layouts/application (27.6ms)
+Completed 200 OK in 110ms (Views: 69.8ms | ActiveRecord: 3.2ms)
+
+
+Started POST "/requests" for 127.0.0.1 at 2018-08-08 10:06:21 -0400
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BJtmosqgN8nQtQ00LuX2JpwG0iX4zy1nlx//i5jm5ps7CspNQcZkKV05GGGUoovbjYrfK/zxLFP7Xmp5UJ63UA==", "request"=>{"user_id"=>"1", "day_attributes"=>{"dayoff(2i)"=>"5", "dayoff(3i)"=>"1", "dayoff(1i)"=>"2018"}, "reason"=>"Sam's birthday"}, "commit"=>"Create Request"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:5
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."dayoff" = ? LIMIT ?[0m  [["dayoff", "2018-05-01"], ["LIMIT", 1]]
+  ↳ app/models/request.rb:7
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/request.rb:7
+  [1m[36mDay Create (0.6ms)[0m  [1m[32mINSERT INTO "days" ("dayoff", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["dayoff", "2018-05-01"], ["created_at", "2018-08-08 14:06:21.322664"], ["updated_at", "2018-08-08 14:06:21.322664"]]
+  ↳ app/models/request.rb:7
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/request.rb:7
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/request.rb:8
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/request.rb:8
+  [1m[36mRequest Create (0.7ms)[0m  [1m[32mINSERT INTO "requests" ("day_id", "user_id", "reason", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["day_id", 12], ["user_id", 1], ["reason", "Sam's birthday"], ["created_at", "2018-08-08 14:06:21.332350"], ["updated_at", "2018-08-08 14:06:21.332350"]]
+  ↳ app/models/request.rb:8
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/request.rb:8
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/requests_controller.rb:8
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/requests_controller.rb:8
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Redirected to https://localhost:3000/users/3
+Completed 302 Found in 25ms (ActiveRecord: 5.4ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2018-08-08 10:06:21 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:29
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/users/show.html.erb:16
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mDay Load (0.3ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  Rendered users/show.html.erb within layouts/application (31.1ms)
+Completed 200 OK in 103ms (Views: 93.0ms | ActiveRecord: 1.2ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2018-08-08 10:06:30 -0400
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"nIBtKH5h1Srf8YB/hodAGZlpywDesSCbtNBJDrdCw/CjEcHH9QeGylJ9lSo8wD3kiOXGDtqPIa/Ykdz8fzqSOw=="}
+Redirected to https://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-08 10:06:30 -0400
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered application/home.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 40ms (Views: 36.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-08-08 10:06:41 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:29
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mRequest Load (0.5ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:16
+  [1m[36mDay Load (0.3ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mCACHE Day Load (0.0ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  Rendered users/show.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 83ms (Views: 74.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-08-08 10:06:42 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:29
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:16
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mCACHE Day Load (0.0ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  Rendered users/show.html.erb within layouts/application (27.6ms)
+Completed 200 OK in 70ms (Views: 64.4ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2018-08-08 10:06:49 -0400
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"fCjlVMzvA3Arzqq/M00S39kT6ZPnGqCwg9X/mkaY7aLtSL3eYypdNTBMeAEmlIxj2ewI2nIrJscs5EmbBK7xcA=="}
+Redirected to https://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-08 10:06:49 -0400
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered application/home.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 37ms (Views: 33.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-08-08 10:08:11 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 66ms (Views: 62.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2018-08-08 10:08:16 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9DVJ630BRhLJzNBuMCJtcLy1rtcETK36xYlR91CYCA3EZlPKhwC20Zs4L0EXmrmuVEM2HNpKk+g4Z06itF6qkw==", "user"=>{"username"=>"SamanthaMGarcia", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "SamanthaMGarcia"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:18
+Redirected to https://localhost:3000/users/2
+Completed 302 Found in 105ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-08-08 10:08:16 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:29
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mRequest Load (0.4ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:16
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mCACHE Day Load (0.0ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:17
+  Rendered users/show.html.erb within layouts/application (26.2ms)
+Completed 200 OK in 85ms (Views: 63.5ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/requests/2/edit" for 127.0.0.1 at 2018-08-08 10:08:18 -0400
+Processing by RequestsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRequest Load (0.4ms)[0m  [1m[34mSELECT  "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:52
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:53
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Request Load (0.0ms)[0m  [1m[34mSELECT  "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:28
+  Rendering requests/edit.html.erb within layouts/application
+  Rendered requests/_form.html.erb (13.9ms)
+  Rendered requests/edit.html.erb within layouts/application (28.1ms)
+Completed 500 Internal Server Error in 90ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    1: <h1>Please Amend Your Days Off Below</h1>
+    2: 
+    3: <%= form_for @request do |f| %>
+    4:   <%= f.hidden_field :user_id, value: @user.id %>
+    5:   <%= f.fields_for :day, @request.build_day do |day_field| %>
+    6:     <%= day_field.date_select(:dayoff, :order => [:month, :day, :year]) %>
+    7: <% end %>
+  
+app/views/requests/_form.html.erb:4:in `block in _app_views_requests__form_html_erb__1112033234875904458_70250003072940'
+app/views/requests/_form.html.erb:3:in `_app_views_requests__form_html_erb__1112033234875904458_70250003072940'
+app/views/requests/edit.html.erb:2:in `_app_views_requests_edit_html_erb___3343580377322748587_70250068668880'
