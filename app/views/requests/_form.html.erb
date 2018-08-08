@@ -8,7 +8,8 @@
   <%= f.label :reason %>
   <%= f.text_field :reason, required: true  %>
   <%= f.submit "Edit" %>
-  <%#= f.submit "Delete" %>
 <% end %>
+
+<h3>Go to <%= link_to 'Office Homepage', days_path %></h3>
 
 <p><%= link_to "Sign out", logout_path, method: :delete %></p>

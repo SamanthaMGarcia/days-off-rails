@@ -15,7 +15,7 @@
   <ul>
     <% @user.requests.each do |request| %>
   <li><%= request.day.dayoff %>
-  <%= request.reason %> <%= link_to "Edit", edit_request_path %></li>
+  <%= request.reason %> <%= link_to "Edit", edit_request_path %> </li>
 <% end %>
 </ul>
 
