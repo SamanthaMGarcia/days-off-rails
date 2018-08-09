@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 3) do
+ActiveRecord::Schema.define(version: 4) do
 
   create_table "days", force: :cascade do |t|
     t.date "dayoff"
@@ -22,6 +22,12 @@ ActiveRecord::Schema.define(version: 3) do
     t.integer "day_id"
     t.integer "user_id"
     t.string "reason"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "titles", force: :cascade do |t|
+    t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
