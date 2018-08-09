@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :days
 
   resources :users do
-    resources :titles
+    resources :titles, only: [:new, :create]
   end
 
   resources :requests

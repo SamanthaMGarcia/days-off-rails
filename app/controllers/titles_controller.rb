@@ -4,7 +4,7 @@ class TitlesController < ApplicationController
   end
 
   def create
-    @user = User.find_by(id: params[:id])
+    @user = User.find(params[:id])
     @title = Title.new(params[:title])
 
     if @title.save
