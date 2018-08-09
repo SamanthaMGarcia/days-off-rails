@@ -2,9 +2,11 @@ Rails.application.routes.draw do
 
   resources :days
 
-  resources :users do
-    resources :titles, only: [:new, :create]
+  resources :users, only: [:show] do
+    resources :titles, only: [:new, :create, :show]
   end
+
+  resources :users
 
   resources :requests
 

@@ -1,1 +1,8 @@
 <h1>Please Enter Your Title Here</h1>
+
+<%= form_for :title, :url => url_for(:controller => 'titles', :action => 'create'), method: :post do |f| %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.label :title_name %>
+  <%= f.text_field :title_name %>
+  <%= f.submit "Add Title" %>
+<% end %>
