@@ -1,6 +1,6 @@
 class TitlesController < ApplicationController
   def new
-    @title = Title.new
+    @title = Title.new(user_id: params[:user_id])
   end
 
   def create
@@ -9,7 +9,6 @@ class TitlesController < ApplicationController
 
     if @title.save
       redirect_to user_path(current_user)
-
     else
       render :new
   end
