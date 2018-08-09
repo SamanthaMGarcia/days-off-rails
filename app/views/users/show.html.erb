@@ -11,7 +11,5 @@
 <% end %>
 </ul>
 
-
-
-
+<p><%= link_to "Add Your Title", "/users/#{current_user.id}/titles/new" %></p>
 <p><%= link_to "Sign out", logout_path, method: :delete %></p>
