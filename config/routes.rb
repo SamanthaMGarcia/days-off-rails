@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
   resources :days
 
-  resources :users
+  resources :users do
+    resources :titles
+  end
 
   resources :requests
 
