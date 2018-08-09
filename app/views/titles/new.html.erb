@@ -1,0 +1,7 @@
+<h1>Please Enter Your Title Here</h1>
+<%= form_for @title do |f| %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.submit "Add Title" %>
+<% end %>
