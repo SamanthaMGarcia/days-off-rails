@@ -7,8 +7,4 @@ class Request < ApplicationRecord
     self.day = Day.find_or_create_by(:dayoff => ymd)
     self.save
   end
-
-  # def ymd
-  #   ymd = "#{day_hash["dayoff(1i)"]} - #{day_hash["dayoff(2i)"]} - #{day_hash["dayoff(3i)"]}"
-  # end
 end
