@@ -3,12 +3,8 @@ class DaysController < ApplicationController
   end
 
   def index
-    @days = Day.all
+    @days = Day.sorted_days
   end
-
-  # def sorted_days
-  #   @days = Day.all
-  # end
 
   private
     def day_params

@@ -3,8 +3,7 @@ class Day < ApplicationRecord
   has_many :users, through: :requests
 
   #define self.sorted_days
-  # def self.sorted_days
-  #   where[]
-  # end
-
+  def self.sorted_days
+    order(dayoff: :asc)
+  end
 end
