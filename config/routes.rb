@@ -2,13 +2,13 @@ Rails.application.routes.draw do
 
   resources :days
 
-  resources :users, only: [:show] do
-    resources :titles, only: [:new, :create, :show]
-  end
-
   resources :users
 
   resources :requests
+
+  resources :users, only: [:show] do
+    resources :titles, only: [:new, :create, :show]
+  end
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'

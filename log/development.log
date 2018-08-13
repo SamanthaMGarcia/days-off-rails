@@ -20187,3 +20187,10 @@ Completed 404 Not Found in 11ms (ActiveRecord: 0.8ms)
 ActiveRecord::RecordNotFound (Couldn't find User with 'id'=new):
   
 app/controllers/users_controller.rb:30:in `set_user'
+Started GET "/users/new" for 127.0.0.1 at 2018-08-13 10:50:28 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (57.0ms)
+Completed 200 OK in 186ms (Views: 144.7ms | ActiveRecord: 1.5ms)
+
+
