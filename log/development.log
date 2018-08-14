@@ -20926,3 +20926,439 @@ Processing by ApplicationController#home as HTML
 Completed 200 OK in 48ms (Views: 43.3ms | ActiveRecord: 0.2ms)
 
 
+Started GET "/login" for 127.0.0.1 at 2018-08-14 15:25:53 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 43ms (Views: 37.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2018-08-14 15:25:58 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vIxPgEPvaXY0AMC4MGXaO1nnK/VoXIMgf6okRKzVPqE599hvzgGvzOy3RBCPM13jgwoqn04NWxVm5O83wVTwjQ==", "user"=>{"username"=>"SamanthaMGarcia", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "SamanthaMGarcia"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:20
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sessions_controller.rb:25
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = ? AND "users"."id" != ? LIMIT ?[0m  [["username", "SamanthaMGarcia"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:25
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/sessions_controller.rb:25
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Redirected to https://localhost:3000/users/2
+Completed 302 Found in 123ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-08-14 15:25:58 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered requests/_form.html.erb (30.3ms)
+  [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:8
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:9
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:9
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:9
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:9
+  [1m[36mCACHE Day Load (0.0ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:9
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:9
+  Rendered users/show.html.erb within layouts/application (53.1ms)
+Completed 200 OK in 110ms (Views: 87.4ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/users/2/titles/new" for 127.0.0.1 at 2018-08-14 15:26:00 -0400
+Processing by TitlesController#new as HTML
+  Parameters: {"user_id"=>"2"}
+  Rendering titles/new.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered titles/new.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 72ms (Views: 45.0ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/users/2/titles" for 127.0.0.1 at 2018-08-14 15:26:04 -0400
+Processing by TitlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KTxpNYBpX6gHovrebkZm3Pl5z+axCcrJcIiUriZjWOv6zq358Jhxrp5DFhISDf13X6vdG7uLipb71qbgnpV5pw==", "title"=>{"user_id"=>"2", "title_name"=>"Associate"}, "commit"=>"Add Title", "user_id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/titles_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/titles_controller.rb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/titles_controller.rb:14
+  [1m[36mTitle Create (1.9ms)[0m  [1m[32mINSERT INTO "titles" ("title_name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title_name", "Associate"], ["user_id", 2], ["created_at", "2018-08-14 19:26:04.511114"], ["updated_at", "2018-08-14 19:26:04.511114"]]
+  ↳ app/controllers/titles_controller.rb:14
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/titles_controller.rb:14
+Redirected to https://localhost:3000/users/2/titles/9
+Completed 302 Found in 15ms (ActiveRecord: 3.6ms)
+
+
+Started GET "/users/2/titles/9" for 127.0.0.1 at 2018-08-14 15:26:04 -0400
+Processing by TitlesController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"9"}
+  [1m[36mTitle Load (0.2ms)[0m  [1m[34mSELECT  "titles".* FROM "titles" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/titles_controller.rb:7
+  Rendering titles/show.html.erb within layouts/application
+  Rendered titles/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 44ms (Views: 39.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/2/titles/new" for 127.0.0.1 at 2018-08-14 15:26:07 -0400
+Processing by TitlesController#new as HTML
+  Parameters: {"user_id"=>"2"}
+  Rendering titles/new.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered titles/new.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 46ms (Views: 42.0ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/users/2/titles" for 127.0.0.1 at 2018-08-14 15:27:08 -0400
+Processing by TitlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ISeCg+sdAmhUILROz3lvTRWP2iKom7eXqM4HhXMUpMD0e2OHNO8amxSMGUbhge+uuoPn9x8nZcXyOqMCCWvVVA==", "title"=>{"user_id"=>"2", "title_name"=>"Associate"}, "commit"=>"Add Title", "user_id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/titles_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/titles_controller.rb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/titles_controller.rb:14
+  [1m[36mTitle Create (0.7ms)[0m  [1m[32mINSERT INTO "titles" ("title_name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title_name", "Associate"], ["user_id", 2], ["created_at", "2018-08-14 19:27:08.051634"], ["updated_at", "2018-08-14 19:27:08.051634"]]
+  ↳ app/controllers/titles_controller.rb:14
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/titles_controller.rb:14
+Redirected to https://localhost:3000/users/2/titles/10
+Completed 302 Found in 9ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/users/2/titles/10" for 127.0.0.1 at 2018-08-14 15:27:08 -0400
+Processing by TitlesController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"10"}
+  [1m[36mTitle Load (0.2ms)[0m  [1m[34mSELECT  "titles".* FROM "titles" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/titles_controller.rb:7
+  Rendering titles/show.html.erb within layouts/application
+  Rendered titles/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 43ms (Views: 37.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/2/titles/new" for 127.0.0.1 at 2018-08-14 15:31:34 -0400
+Processing by TitlesController#new as HTML
+  Parameters: {"user_id"=>"2"}
+  Rendering titles/new.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered titles/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 45ms (Views: 41.3ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/users/2/titles" for 127.0.0.1 at 2018-08-14 15:31:38 -0400
+Processing by TitlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7SS/dAY65Kq8l3n1u5vjTCWFPnQSsEyqa9nqfvvUfGk4eF5w2cj8Wfw71P2VY2OviokDoaUMnvgxLU75gasN/Q==", "title"=>{"user_id"=>"2", "title_name"=>"Associate"}, "commit"=>"Add Title", "user_id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/titles_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/titles_controller.rb:14
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/titles_controller.rb:14
+  [1m[36mTitle Create (0.6ms)[0m  [1m[32mINSERT INTO "titles" ("title_name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title_name", "Associate"], ["user_id", 2], ["created_at", "2018-08-14 19:31:38.379760"], ["updated_at", "2018-08-14 19:31:38.379760"]]
+  ↳ app/controllers/titles_controller.rb:14
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/titles_controller.rb:14
+Redirected to https://localhost:3000/users/2/titles/11
+Completed 302 Found in 8ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/users/2/titles/11" for 127.0.0.1 at 2018-08-14 15:31:38 -0400
+Processing by TitlesController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"11"}
+  [1m[36mTitle Load (0.2ms)[0m  [1m[34mSELECT  "titles".* FROM "titles" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/titles_controller.rb:7
+  Rendering titles/show.html.erb within layouts/application
+  Rendered titles/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 59ms (Views: 54.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/2/titles/new" for 127.0.0.1 at 2018-08-14 15:32:27 -0400
+Processing by TitlesController#new as HTML
+  Parameters: {"user_id"=>"2"}
+  Rendering titles/new.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered titles/new.html.erb within layouts/application (23.2ms)
+Completed 200 OK in 95ms (Views: 68.3ms | ActiveRecord: 3.0ms)
+
+
+Started POST "/users/2/titles" for 127.0.0.1 at 2018-08-14 15:32:28 -0400
+Processing by TitlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/nRUpGWA140JmU81GF3dLMniwGfrB5SWmAWxTyVvw34rKLWgunLPfkk14j02pV3PZu79sly7RsTC8RXIXxCy6g==", "title"=>{"user_id"=>"2", "title_name"=>"Associate"}, "commit"=>"Add Title", "user_id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/titles_controller.rb:11
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/titles_controller.rb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/titles_controller.rb:14
+  [1m[36mTitle Create (0.5ms)[0m  [1m[32mINSERT INTO "titles" ("title_name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title_name", "Associate"], ["user_id", 2], ["created_at", "2018-08-14 19:32:28.767085"], ["updated_at", "2018-08-14 19:32:28.767085"]]
+  ↳ app/controllers/titles_controller.rb:14
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/titles_controller.rb:14
+Redirected to https://localhost:3000/users/2/titles/12
+Completed 302 Found in 14ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/users/2/titles/12" for 127.0.0.1 at 2018-08-14 15:32:28 -0400
+Processing by TitlesController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"12"}
+  [1m[36mTitle Load (0.2ms)[0m  [1m[34mSELECT  "titles".* FROM "titles" WHERE "titles"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/titles_controller.rb:7
+  Rendering titles/show.html.erb within layouts/application
+  Rendered titles/show.html.erb within layouts/application (8.0ms)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `title_name' for nil:NilClass):
+    1: <h1>Your title is <%= @title.title_name %></h1>
+  
+app/views/titles/show.html.erb:1:in `_app_views_titles_show_html_erb___3429082654333971070_70109945012540'
+Started GET "/users/2/titles/12" for 127.0.0.1 at 2018-08-14 15:33:03 -0400
+Processing by TitlesController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"12"}
+Completed 404 Not Found in 6ms (ActiveRecord: 0.8ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Title without an ID):
+  
+app/controllers/titles_controller.rb:7:in `show'
+Started GET "/users/2/titles/12" for 127.0.0.1 at 2018-08-14 15:33:50 -0400
+Processing by TitlesController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"12"}
+  [1m[36mTitle Load (0.2ms)[0m  [1m[34mSELECT  "titles".* FROM "titles" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/titles_controller.rb:7
+  Rendering titles/show.html.erb within layouts/application
+  Rendered titles/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 84ms (Views: 64.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/2/titles/new" for 127.0.0.1 at 2018-08-14 15:33:53 -0400
+Processing by TitlesController#new as HTML
+  Parameters: {"user_id"=>"2"}
+  Rendering titles/new.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered titles/new.html.erb within layouts/application (20.4ms)
+Completed 200 OK in 61ms (Views: 56.1ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/users/2/titles" for 127.0.0.1 at 2018-08-14 15:33:55 -0400
+Processing by TitlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"g5DOHJNCYFTRzrs1WEBv5oQ/oHEPa7d0ks1DjeEMBodWzC8YTLB4p5FiFj12uO8FKzOdpLjXZSbIOecKm3N3Ew==", "title"=>{"user_id"=>"2", "title_name"=>"Associate"}, "commit"=>"Add Title", "user_id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/titles_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/titles_controller.rb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/titles_controller.rb:14
+  [1m[36mTitle Create (0.7ms)[0m  [1m[32mINSERT INTO "titles" ("title_name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title_name", "Associate"], ["user_id", 2], ["created_at", "2018-08-14 19:33:55.684465"], ["updated_at", "2018-08-14 19:33:55.684465"]]
+  ↳ app/controllers/titles_controller.rb:14
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/titles_controller.rb:14
+Redirected to https://localhost:3000/users/2/titles/13
+Completed 302 Found in 14ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/users/2/titles/13" for 127.0.0.1 at 2018-08-14 15:33:55 -0400
+Processing by TitlesController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"13"}
+  [1m[36mTitle Load (0.2ms)[0m  [1m[34mSELECT  "titles".* FROM "titles" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/titles_controller.rb:7
+  Rendering titles/show.html.erb within layouts/application
+  Rendered titles/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 43ms (Views: 38.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/2/titles/new" for 127.0.0.1 at 2018-08-14 15:36:16 -0400
+Processing by TitlesController#new as HTML
+  Parameters: {"user_id"=>"2"}
+  Rendering titles/new.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered titles/new.html.erb within layouts/application (29.8ms)
+Completed 200 OK in 105ms (Views: 87.3ms | ActiveRecord: 2.1ms)
+
+
+Started POST "/users/2/titles" for 127.0.0.1 at 2018-08-14 15:36:18 -0400
+Processing by TitlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+5uz3MBt9a6ML8/wpOO2jrFZyzJQ2utxknlPN++1Iikux1LYH5/tXcyDYviKGzZtHlX25+dmOSPIjeuwlcpTvQ==", "title"=>{"user_id"=>"2", "title_name"=>"Associate"}, "commit"=>"Add Title", "user_id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/titles_controller.rb:12
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/titles_controller.rb:15
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/titles_controller.rb:15
+  [1m[36mTitle Create (0.6ms)[0m  [1m[32mINSERT INTO "titles" ("title_name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title_name", "Associate"], ["user_id", 2], ["created_at", "2018-08-14 19:36:18.626046"], ["updated_at", "2018-08-14 19:36:18.626046"]]
+  ↳ app/controllers/titles_controller.rb:15
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/titles_controller.rb:15
+Redirected to https://localhost:3000/users/2/titles/14
+Completed 302 Found in 12ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/users/2/titles/14" for 127.0.0.1 at 2018-08-14 15:36:18 -0400
+Processing by TitlesController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"14"}
+  [1m[36mTitle Load (0.5ms)[0m  [1m[34mSELECT  "titles".* FROM "titles" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/titles_controller.rb:8
+  Rendering titles/show.html.erb within layouts/application
+  Rendered titles/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 124270ms (Views: 43.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-08-14 15:38:22 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered requests/_form.html.erb (23.8ms)
+  [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:8
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:9
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:9
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:9
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:9
+  [1m[36mCACHE Day Load (0.0ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:9
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:9
+  Rendered users/show.html.erb within layouts/application (43.7ms)
+Completed 200 OK in 139ms (Views: 97.3ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-08-14 15:38:23 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered requests/_form.html.erb (7.8ms)
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:8
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:9
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:9
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:9
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:9
+  [1m[36mCACHE Day Load (0.0ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:9
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:9
+  Rendered users/show.html.erb within layouts/application (23.8ms)
+Completed 200 OK in 63ms (Views: 56.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users/2/titles/new" for 127.0.0.1 at 2018-08-14 15:38:25 -0400
+Processing by TitlesController#new as HTML
+  Parameters: {"user_id"=>"2"}
+  Rendering titles/new.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered titles/new.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 97ms (Views: 67.0ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/users/2/titles" for 127.0.0.1 at 2018-08-14 15:38:28 -0400
+Processing by TitlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OtlPl8U+PV1M8TR4plvLbNjk/S6Sft/gaxgZLjD+NrXpK4tbtc8TW9UQ2LTaEFDHfjbv05j8n7/gRitgiAgX+Q==", "title"=>{"user_id"=>"2", "title_name"=>"Associate"}, "commit"=>"Add Title", "user_id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/titles_controller.rb:12
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/titles_controller.rb:15
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/titles_controller.rb:15
+  [1m[36mTitle Create (0.7ms)[0m  [1m[32mINSERT INTO "titles" ("title_name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title_name", "Associate"], ["user_id", 2], ["created_at", "2018-08-14 19:42:31.394368"], ["updated_at", "2018-08-14 19:42:31.394368"]]
+  ↳ app/controllers/titles_controller.rb:15
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/titles_controller.rb:15
+Redirected to https://localhost:3000/users/2/titles/15
+Completed 302 Found in 242729ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/users/2/titles/15" for 127.0.0.1 at 2018-08-14 15:42:31 -0400
+Processing by TitlesController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"15"}
+  [1m[36mTitle Load (0.2ms)[0m  [1m[34mSELECT  "titles".* FROM "titles" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/titles_controller.rb:7
+  Rendering titles/show.html.erb within layouts/application
+  Rendered titles/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 83ms (Views: 67.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/2/titles/new" for 127.0.0.1 at 2018-08-14 15:44:57 -0400
+Processing by TitlesController#new as HTML
+  Parameters: {"user_id"=>"2"}
+  Rendering titles/new.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered titles/new.html.erb within layouts/application (19.2ms)
+Completed 200 OK in 82ms (Views: 65.3ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/users/2/titles" for 127.0.0.1 at 2018-08-14 15:45:00 -0400
+Processing by TitlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"moMrVgpHKl88WYJFc5Km5mUAdGXUYTnq+e1B3joC7shP38pS1bUyrHz1L01daiYFygxJsGPd67ijGeVZQH2fXA==", "title"=>{"user_id"=>"2", "title_name"=>"Associate"}, "commit"=>"Add Title", "user_id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/titles_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/titles_controller.rb:13
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/titles_controller.rb:13
+  [1m[36mTitle Create (0.8ms)[0m  [1m[32mINSERT INTO "titles" ("title_name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title_name", "Associate"], ["user_id", 2], ["created_at", "2018-08-14 19:45:00.146555"], ["updated_at", "2018-08-14 19:45:00.146555"]]
+  ↳ app/controllers/titles_controller.rb:13
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/titles_controller.rb:13
+Redirected to https://localhost:3000/users/2/titles/16
+Completed 302 Found in 16ms (ActiveRecord: 2.5ms)
+
+
+Started GET "/users/2/titles/16" for 127.0.0.1 at 2018-08-14 15:45:00 -0400
+Processing by TitlesController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"16"}
+  [1m[36mTitle Load (0.4ms)[0m  [1m[34mSELECT  "titles".* FROM "titles" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/titles_controller.rb:7
+  Rendering titles/show.html.erb within layouts/application
+  Rendered titles/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 81ms (Views: 74.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/2/titles/new" for 127.0.0.1 at 2018-08-14 15:45:03 -0400
+Processing by TitlesController#new as HTML
+  Parameters: {"user_id"=>"2"}
+  Rendering titles/new.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered titles/new.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 49ms (Views: 44.4ms | ActiveRecord: 0.2ms)
+
+

@@ -10,7 +10,6 @@ class TitlesController < ApplicationController
   def create
     @user = User.find(params[:user_id])
     @title = Title.new(title_params)
-
     if @title.save
       redirect_to user_title_path(@user, @title)
     else
@@ -21,6 +20,6 @@ class TitlesController < ApplicationController
   private
 
   def title_params
-    params.require(:title).permit(:title_name, :user_id)
+    params.require(:title).permit(:title_name, :user_id, :title_id)
   end
 end
