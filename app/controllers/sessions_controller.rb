@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
         render :new
 
       elsif !@user.save
-        flash.now[:error] = "We've encountered an issue, please try again."
+        render :new
 
       else @user && @user.authenticate(params[:user][:password])
         session[:user_id] = @user.id
