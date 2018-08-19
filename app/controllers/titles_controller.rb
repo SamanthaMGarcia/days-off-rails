@@ -3,7 +3,8 @@ class TitlesController < ApplicationController
     @title = Title.new
   end
 
-  def show
+  def index
+    @titles = Title.all
     @title = Title.find_by(params[:title_id])
   end
 
@@ -11,7 +12,7 @@ class TitlesController < ApplicationController
     @user = User.find(params[:user_id])
     @title = Title.new(title_params)
     if @title.save
-      redirect_to user_title_path(@user, @title)
+      redirect_to user_titles_path(@user, @titles)
     else
       render :new
     end

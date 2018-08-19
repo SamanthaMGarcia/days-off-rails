@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :requests
 
   resources :users, only: [:show] do
-    resources :titles, only: [:new, :create, :show]
+    resources :titles, only: [:new, :create, :index]
   end
 
   get '/login', to: 'sessions#new'
