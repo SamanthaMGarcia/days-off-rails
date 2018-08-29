@@ -5,29 +5,26 @@ class SessionsController < ApplicationController
   end
 
   def create
-      if auth
+    if auth
         @user = User.find_or_create_by(username: auth["info"]["email"]) do |u|
           u.password = Password.pronounceable 9
         end
 
-      if @user.save
-        session[:user_id] = @user.id
-        redirect_to user_path(current_user)
-      end
+        if @user.save
+          session[:user_id] = @user.id
+          redirect_to user_path(current_user)
+        end
 
     else #regular login below
 
-      @user = User.find_or_create_by(username: params[:user][:username])
-      if params[:user][:username].empty? || params[:user][:password].empty?
-        flash.now[:error] = @user.errors.full_messages
-        render :new
-
-      elsif !@user.save
-        render :new
-
-      else @user && @user.authenticate(params[:user][:password])
+      @user = User.find_by(username: params[:user][:username])
+      if @user && @user.authenticate(params[:user][:password])
         session[:user_id] = @user.id
         redirect_to user_path(current_user)
+
+      else
+        flash.now[:error] = ["There was an error, logging you in, please try again!"]
+        render :new
       end
     end
   end

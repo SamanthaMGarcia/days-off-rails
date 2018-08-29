@@ -4,8 +4,8 @@ class TitlesController < ApplicationController
   end
 
   def index
-    @titles = Title.all
-    @title = Title.find_by(params[:title_id])
+    user = User.find_by(id: params[:user_id])
+    @titles = user.titles
   end
 
   def create
