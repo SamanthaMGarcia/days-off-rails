@@ -25779,3 +25779,204 @@ Processing by UsersController#show as HTML
 Completed 200 OK in 83ms (Views: 72.4ms | ActiveRecord: 1.8ms)
 
 
+Started GET "/users/2/titles/new" for 127.0.0.1 at 2018-11-03 16:17:36 -0400
+Processing by TitlesController#new as HTML
+  Parameters: {"user_id"=>"2"}
+  Rendering titles/new.html.erb within layouts/application
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered titles/new.html.erb within layouts/application (11.8ms)
+Completed 200 OK in 134ms (Views: 119.6ms | ActiveRecord: 3.9ms)
+
+
+Started POST "/users/2/titles" for 127.0.0.1 at 2018-11-03 16:17:45 -0400
+Processing by TitlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WFyMLY6UbYFfWXEqEafPxjs0Fbf25HX37xOAUaO5w6H2qpv3P6fJ6Ykff2sHUC7y0Suu/H+/POqbueEN9ur5tA==", "title"=>{"user_id"=>"2", "title_name"=>"Assistant"}, "commit"=>"Add Title", "user_id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/titles_controller.rb:12
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/titles_controller.rb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/titles_controller.rb:14
+  [1m[36mTitle Create (0.6ms)[0m  [1m[32mINSERT INTO "titles" ("title_name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title_name", "Assistant"], ["user_id", 2], ["created_at", "2018-11-03 20:17:45.311466"], ["updated_at", "2018-11-03 20:17:45.311466"]]
+  ↳ app/controllers/titles_controller.rb:14
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/titles_controller.rb:14
+Redirected to http://localhost:3000/users/2/titles
+Completed 302 Found in 28ms (ActiveRecord: 2.8ms)
+
+
+Started GET "/users/2/titles" for 127.0.0.1 at 2018-11-03 16:17:45 -0400
+Processing by TitlesController#index as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/titles_controller.rb:7
+  Rendering titles/index.html.erb within layouts/application
+  [1m[36mTitle Load (0.3ms)[0m  [1m[34mSELECT "titles".* FROM "titles" WHERE "titles"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/titles/index.html.erb:2
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered titles/index.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 91ms (Views: 82.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-11-03 16:17:47 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered requests/_form.html.erb (11.1ms)
+  [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:8
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:9
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:9
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:9
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:9
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:9
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:9
+  Rendered users/show.html.erb within layouts/application (31.3ms)
+Completed 200 OK in 91ms (Views: 81.1ms | ActiveRecord: 1.6ms)
+
+
+Started DELETE "/requests/19" for 127.0.0.1 at 2018-11-03 16:18:07 -0400
+Processing by RequestsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"JtIUxVWlSQsfH39ISLev/OuWZ36S4xAxtELORzhWaDPzomvsF4PSkNDS7t8eOyU7u9514zjqrxRM5y6ZuaEIXQ==", "id"=>"19"}
+  [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT  "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:40
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:41
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/requests_controller.rb:30
+  [1m[36mRequest Destroy (1.7ms)[0m  [1m[31mDELETE FROM "requests" WHERE "requests"."id" = ?[0m  [["id", 19]]
+  ↳ app/controllers/requests_controller.rb:30
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/requests_controller.rb:30
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 13ms (ActiveRecord: 3.5ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-11-03 16:18:07 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered requests/_form.html.erb (8.9ms)
+  [1m[36mRequest Load (0.6ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:8
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:9
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:9
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:9
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:9
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:9
+  Rendered users/show.html.erb within layouts/application (28.2ms)
+Completed 200 OK in 103ms (Views: 95.9ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/requests/20/edit" for 127.0.0.1 at 2018-11-03 16:18:11 -0400
+Processing by RequestsController#edit as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mRequest Load (0.5ms)[0m  [1m[34mSELECT  "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:40
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:41
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Request Load (0.0ms)[0m  [1m[34mSELECT  "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:17
+  Rendering requests/edit.html.erb within layouts/application
+  Rendered requests/_form.html.erb (9.3ms)
+  Rendered requests/edit.html.erb within layouts/application (15.9ms)
+Completed 200 OK in 108ms (Views: 93.0ms | ActiveRecord: 1.0ms)
+
+
+Started PATCH "/requests/20" for 127.0.0.1 at 2018-11-03 16:18:25 -0400
+Processing by RequestsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WmJmySYWOQJlE2VWU0O0z6CGXFQMF0Yd2cCdaDMxt5+dbvrcamgju5HgFDzNkrjslChi+WJl/C5E9uyj1o5BNw==", "request"=>{"user_id"=>"2", "day_attributes"=>{"dayoff(2i)"=>"8", "dayoff(3i)"=>"14", "dayoff(1i)"=>"2018"}, "reason"=>"Jay's Birthday"}, "commit"=>"Update Request", "id"=>"20"}
+  [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT  "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:40
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:41
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/requests_controller.rb:21
+  [1m[36mDay Load (0.5ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."dayoff" = ? LIMIT ?[0m  [["dayoff", "2018-08-14"], ["LIMIT", 1]]
+  ↳ app/models/request.rb:7
+  [1m[36mRequest Update (1.1ms)[0m  [1m[33mUPDATE "requests" SET "reason" = ?, "updated_at" = ? WHERE "requests"."id" = ?[0m  [["reason", "Jay's Birthday"], ["updated_at", "2018-11-03 20:18:25.505893"], ["id", 20]]
+  ↳ app/models/request.rb:8
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/requests_controller.rb:21
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 23ms (ActiveRecord: 4.1ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-11-03 16:18:25 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered requests/_form.html.erb (9.3ms)
+  [1m[36mRequest Load (0.4ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:8
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:9
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:9
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:9
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:9
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:9
+  Rendered users/show.html.erb within layouts/application (31.9ms)
+Completed 200 OK in 129ms (Views: 118.6ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/requests/23/edit" for 127.0.0.1 at 2018-11-03 16:18:32 -0400
+Processing by RequestsController#edit as HTML
+  Parameters: {"id"=>"23"}
+  [1m[36mRequest Load (0.5ms)[0m  [1m[34mSELECT  "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:40
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:41
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Request Load (0.0ms)[0m  [1m[34mSELECT  "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:17
+  Rendering requests/edit.html.erb within layouts/application
+  Rendered requests/_form.html.erb (5.7ms)
+  Rendered requests/edit.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 72ms (Views: 60.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/days" for 127.0.0.1 at 2018-11-03 16:18:39 -0400
+Processing by DaysController#index as HTML
+  Rendering days/index.html.erb within layouts/application
+  [1m[36mDay Load (0.5ms)[0m  [1m[34mSELECT "days".* FROM "days" ORDER BY "days"."dayoff" ASC[0m
+  ↳ app/views/days/index.html.erb:3
+  Rendered days/index.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 66ms (Views: 58.2ms | ActiveRecord: 0.5ms)
+
+
